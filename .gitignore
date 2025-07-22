@@ -15,6 +15,15 @@ dist/
 # Production
 /build
 
+# Turbo
+.turbo/
+
+# Supabase
+**/supabase/.temp/
+**/supabase/logs/
+**/supabase/.branches/
+**/supabase/.env
+
 # Misc
 .DS_Store
 *.pem
