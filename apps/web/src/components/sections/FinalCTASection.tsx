@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, MessageSquare, Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 export default function FinalCTASection() {
@@ -23,28 +23,18 @@ export default function FinalCTASection() {
           </h2>
           
           <p className="text-xl text-gray-600 mb-12 leading-relaxed">
-            Start with our AI-powered requirements chat. In 15 minutes, you'll have a clear 
-            roadmap and a custom proposal for your MVP.
+            Ready to transform your vision into reality? Get started with your MVP application today.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-6 text-lg group shadow-lg"
-              onClick={() => router.push('/chat')}
-            >
-              <Sparkles className="mr-2 w-5 h-5" />
-              Start Requirements Chat
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg"
               onClick={() => router.push('/apply')}
             >
-              Skip to Application
+              <Sparkles className="mr-2 w-5 h-5" />
+              Build My MVP
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
 
 const pocFeatures = [
-  'Clickable prototype with realistic data',
+  'Clickable prototype with realistic data (Real - Not Figma)',
   'Core user flows and interface design',
   'Demo-ready for presentations',
   'Perfect for pitch decks and investor validation',
@@ -16,7 +16,7 @@ const pocFeatures = [
 
 const mvpFeatures = [
   'Professional full-stack application',
-  'Authentication + Payments + Core features',
+  'Authentication + Payments + Up to 3 core features',
   'AI-native architecture from day one',
   'Production deployment and hosting setup',
   '30 days of iterations based on user feedback',

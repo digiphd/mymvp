@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Menu, X, MessageSquare } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -48,7 +48,10 @@ export default function Header() {
                 height={32}
                 className="w-8 h-8"
               />
-              <span className="text-2xl font-bold text-blue-600">MyMVP</span>
+              <span className="text-2xl font-bold">
+                <span className="text-black">my</span>
+                <span className="text-blue-600">MVP</span>
+              </span>
             </Link>
           </motion.div>
 
@@ -75,14 +78,6 @@ export default function Header() {
             transition={{ duration: 0.6 }}
             className="hidden md:flex items-center space-x-3"
           >
-            <Button
-              variant="ghost"
-              className="text-blue-600 hover:bg-blue-50 font-semibold px-4 py-2"
-              onClick={() => router.push('/chat')}
-            >
-              <MessageSquare className="w-4 h-4 mr-2" />
-              Start Requirements Chat
-            </Button>
             <Button
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 shadow-sm"
               onClick={() => router.push('/apply')}

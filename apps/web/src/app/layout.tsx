@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://mymvp.io'),
   openGraph: {
     title: 'MyMVP - AI-Powered MVP Development',
-    description: 'Skip the guesswork. Our AI-powered chat defines precise requirements for your MVP in minutes, not weeks.',
+    description: 'AI-powered development systems that turn your vision into a working MVP in 14 days.',
     images: ['/logo.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MyMVP - AI-Powered MVP Development',
-    description: 'Skip the guesswork. Our AI-powered chat defines precise requirements for your MVP in minutes, not weeks.',
+    description: 'AI-powered development systems that turn your vision into a working MVP in 14 days.',
     images: ['/logo.png'],
   },
 }

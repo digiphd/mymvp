@@ -10,7 +10,6 @@ import WhatWeDontDoSection from '@/components/sections/WhatWeDontDoSection'
 import PricingSection from '@/components/sections/PricingSection'
 import FAQSection from '@/components/sections/FAQSection'
 import FinalCTASection from '@/components/sections/FinalCTASection'
-import FloatingChatButton from '@/components/FloatingChatButton'
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
         <FinalCTASection />
       </main>
       <Footer />
-      <FloatingChatButton />
     </>
   )
 }

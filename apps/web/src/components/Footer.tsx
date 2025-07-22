@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Mail, Twitter, Linkedin, Github, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Footer() {
   const scrollToSection = (href: string) => {
@@ -30,7 +31,19 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="text-2xl font-bold text-blue-400 mb-4">MyMVP</div>
+              <div className="flex items-center space-x-3 mb-4">
+                <Image 
+                  src="/logo.png" 
+                  alt="MyMVP Logo" 
+                  width={32} 
+                  height={32}
+                  className="w-8 h-8"
+                />
+                <div className="text-2xl font-bold">
+                  <span className="text-white">my</span>
+                  <span className="text-blue-400">MVP</span>
+                </div>
+              </div>
               <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
                 AI-powered development systems that turn your vision into a functional MVP in 14 days. 
                 Stop planning, start building.
@@ -42,7 +55,7 @@ export default function Footer() {
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 group"
                   onClick={() => window.location.href = '/apply'}
                 >
-                  Start Your MVP
+                  Build My MVP
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>

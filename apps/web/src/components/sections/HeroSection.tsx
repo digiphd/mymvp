@@ -2,15 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Zap, MessageCircle, Sparkles } from 'lucide-react'
+import { ArrowRight, Zap, Sparkles } from 'lucide-react'
 import MVPMockup from '@/components/MVPMockup'
 import { useRouter } from 'next/navigation'
 
-interface HeroSectionProps {
-  onOpenChat?: () => void
-}
-
-export default function HeroSection({ onOpenChat }: HeroSectionProps) {
+export default function HeroSection() {
   const router = useRouter()
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 pt-16">
@@ -52,14 +48,14 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed"
             >
-              Skip the guesswork. Our AI-powered chat will understand your vision and{' '}
+              AI-powered development systems that turn your vision into a{' '}
               <motion.span 
                 whileHover={{ scale: 1.05 }}
                 className="text-blue-600 font-semibold cursor-default"
               >
-                define precise requirements
+                working MVP
               </motion.span>{' '}
-              for your MVP in minutes, not weeks
+              in 14 days
             </motion.p>
 
             <motion.div
@@ -70,7 +66,7 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
               className="mb-8"
             >
               <p className="text-xl md:text-2xl font-bold text-blue-600 cursor-default">
-                "Stop overthinking. Start building."
+                "Your competition is still planning, you're already launching"
               </p>
             </motion.div>
 
@@ -84,10 +80,10 @@ export default function HeroSection({ onOpenChat }: HeroSectionProps) {
                 <Button
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-6 text-lg group shadow-lg transition-all duration-200"
-                  onClick={() => router.push('/chat')}
+                  onClick={() => router.push('/apply')}
                 >
                   <Sparkles className="mr-2 w-5 h-5" />
-                  Start AI Requirements Chat
+                  Build My MVP
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>
