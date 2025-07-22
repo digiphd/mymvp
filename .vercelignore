@@ -1,0 +1,10 @@
+node_modules
+.next
+.turbo
+apps/api
+packages/database
+packages/shared
+packages/ui
+*.log
+.env.local
+.env*.local
