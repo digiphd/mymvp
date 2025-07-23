@@ -89,11 +89,8 @@ export default function PricingSection() {
               {/* Pivot Option */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
                 <h5 className="font-semibold text-blue-900 mb-2">Easy Pivot to Full MVP</h5>
-                <p className="text-sm text-blue-800 mb-3">
-                  Love your proof of concept? Add backend, database, and authentication for just <strong>+$11,000</strong> (total $12,000)
-                </p>
-                <p className="text-xs text-blue-700">
-                  Convert your frontend into a production-ready application with user accounts, payments, and real backend logic
+                <p className="text-sm text-blue-800">
+                  Love your proof of concept? Get a <strong>discount to upgrade</strong> to the full MVP once your frontend is complete.
                 </p>
               </div>
 
@@ -127,9 +124,9 @@ export default function PricingSection() {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-blue-600 mb-2">Full MVP</h3>
                 <div className="mb-2">
-                  <div className="text-lg text-gray-500 line-through">$24,000</div>
-                  <div className="text-4xl font-bold text-gray-900">$12,000</div>
-                  <div className="text-sm text-green-600 font-semibold">Save $12,000 - Beta Launch Special</div>
+                  <div className="text-lg text-gray-500 line-through">$7,997</div>
+                  <div className="text-4xl font-bold text-gray-900">$5,997</div>
+                  <div className="text-sm text-green-600 font-semibold">Save $2,000 - Beta Launch Special</div>
                 </div>
                 <p className="text-gray-600">Working application ready for real users</p>
                 <div className="mt-4 inline-flex items-center bg-blue-100 px-4 py-2 rounded-full border border-blue-200">
@@ -158,12 +155,6 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
-                <h4 className="text-lg font-bold text-blue-600 mb-2">30-Day Money-Back Guarantee</h4>
-                <p className="text-gray-600 text-sm">
-                  Not satisfied with your MVP? Get a full refund within 30 days of delivery.
-                </p>
-              </div>
 
               <div className="text-center">
                 <Button

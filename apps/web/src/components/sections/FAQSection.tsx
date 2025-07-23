@@ -96,10 +96,6 @@ const faqCategories = [
         question: "Are there any hidden costs?",
         answer: "No. Our pricing is transparent. The only ongoing costs are optional hosting ($127/month) and support services ($247/month) if you choose them."
       },
-      {
-        question: "What's included in the 30-day money-back guarantee?",
-        answer: "If you're not satisfied with the delivered application within 30 days, you get a full refund. We stand behind our work."
-      }
     ]
   },
   {
