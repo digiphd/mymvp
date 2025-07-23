@@ -22,8 +22,8 @@ const dontDoItems = [
   },
   {
     icon: Users,
-    title: 'Junior Developer Teams',
-    description: "Your MVP isn't a training ground. We use senior developers who've shipped 100+ applications."
+    title: 'Old-Paradigm Development',
+    description: "Manual coding for every feature is inefficient. We use AI-native development to ship faster while maintaining quality."
   },
   {
     icon: Search,
