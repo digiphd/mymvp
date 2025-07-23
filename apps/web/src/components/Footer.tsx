@@ -45,8 +45,7 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-                AI-powered development systems that turn your vision into a functional MVP in 14 days. 
-                Stop planning, start building.
+                14-day MVP development for solo founders. Working web apps with authentication, payments, and core features. Ready to validate with real users.
               </p>
               
               {/* CTA in Footer */}

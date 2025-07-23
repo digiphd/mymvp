@@ -151,7 +151,7 @@ export default function FAQSection() {
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {faqCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
@@ -159,13 +159,13 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="mb-12"
+              className="mb-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
                 {category.title}
               </h3>
               
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {category.faqs.map((faq, faqIndex) => {
                   const itemId = `${categoryIndex}-${faqIndex}`
                   return (
@@ -175,17 +175,17 @@ export default function FAQSection() {
                     >
                       <button
                         onClick={() => toggleItem(categoryIndex, faqIndex)}
-                        className="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        className="w-full p-4 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                       >
                         <div className="flex items-center justify-between">
-                          <h4 className="text-lg font-semibold text-gray-900 pr-4">
+                          <h4 className="text-base font-semibold text-gray-900 pr-4">
                             {faq.question}
                           </h4>
                           <div className="flex-shrink-0">
                             {openItems.includes(itemId) ? (
-                              <ChevronUp className="w-5 h-5 text-blue-600" />
+                              <ChevronUp className="w-4 h-4 text-blue-600" />
                             ) : (
-                              <ChevronDown className="w-5 h-5 text-gray-400" />
+                              <ChevronDown className="w-4 h-4 text-gray-400" />
                             )}
                           </div>
                         </div>
@@ -199,9 +199,9 @@ export default function FAQSection() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                           >
-                            <div className="px-6 pb-6">
-                              <div className="border-t border-gray-100 pt-4">
-                                <p className="text-gray-600 leading-relaxed">
+                            <div className="px-4 pb-4">
+                              <div className="border-t border-gray-100 pt-3">
+                                <p className="text-gray-600 text-sm leading-relaxed">
                                   {faq.answer}
                                 </p>
                               </div>
