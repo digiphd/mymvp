@@ -98,7 +98,7 @@ export default function ChatWidget({ isOpen, onToggle, onSignUpSuggested }: Chat
                 <div className="flex items-center space-x-2">
                   <Bot className="h-5 w-5" />
                   <div>
-                    <h3 className="font-semibold">MyMVP Assistant</h3>
+                    <h3 className="font-semibold">myMVP Assistant</h3>
                     <p className="text-xs text-blue-100">Define your requirements</p>
                   </div>
                 </div>

@@ -111,7 +111,7 @@ export default function ApplicationPage() {
         >
           <div className="flex items-center justify-center mb-4">
             <Zap className="w-8 h-8 text-blue-600 mr-3" />
-            <span className="text-blue-600 font-semibold">MyMVP Application</span>
+            <span className="text-blue-600 font-semibold">myMVP Application</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Transform Your Vision
@@ -386,7 +386,7 @@ export default function ApplicationPage() {
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-blue-600 mb-4">Partnership Agreement</h3>
                   <div className="space-y-3 text-gray-600">
-                    <p>• MyMVP handles all technical execution and development</p>
+                    <p>• myMVP handles all technical execution and development</p>
                     <p>• Founder remains responsible for growth, marketing, and customer acquisition</p>
                     <p>• Success metrics and milestones will be clearly defined</p>
                     <p>• Regular communication and collaboration throughout the process</p>

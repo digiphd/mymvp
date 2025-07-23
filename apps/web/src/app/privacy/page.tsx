@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
               <h2 className="text-xl font-semibold text-blue-900 mb-3">Your Privacy Matters</h2>
               <p className="text-blue-800 mb-0">
-                At MyMVP, we are committed to protecting your privacy and being transparent about how we collect, use, and protect your information. This Privacy Policy explains our practices in detail.
+                At myMVP, we are committed to protecting your privacy and being transparent about how we collect, use, and protect your information. This Privacy Policy explains our practices in detail.
               </p>
             </div>
 

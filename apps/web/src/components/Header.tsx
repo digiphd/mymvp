@@ -43,7 +43,7 @@ export default function Header() {
             <Link href="/" className="flex items-center space-x-3">
               <Image 
                 src="/logo.png" 
-                alt="MyMVP Logo" 
+                alt="myMVP Logo" 
                 width={32} 
                 height={32}
                 className="w-8 h-8"
@@ -82,7 +82,7 @@ export default function Header() {
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 shadow-sm"
               onClick={() => router.push('/apply')}
             >
-              Build My MVP
+              Apply to Work With Us
             </Button>
           </motion.div>
 
@@ -125,7 +125,7 @@ export default function Header() {
                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold mt-4"
                 onClick={() => window.location.href = '/apply'}
               >
-                Build My MVP
+                Apply to Work With Us
               </Button>
             </div>
           </motion.div>

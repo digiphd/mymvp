@@ -5,65 +5,131 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
-const faqs = [
+const faqCategories = [
   {
-    question: "How can you build quality applications so fast?",
-    answer: "We use AI-accelerated development combined with proven frameworks and pre-built components. Instead of coding everything from scratch, our AI systems generate architecture, boilerplate code, and integrations, while our engineers focus on your unique business logic. This isn't about cutting corners—it's about eliminating redundant work that agencies typically charge you for."
+    title: "Pre-Project Questions",
+    faqs: [
+      {
+        question: "How can you build quality applications so fast?",
+        answer: "AI-powered development handles repetitive coding tasks while our developers focus on your unique requirements. We use proven frameworks and standardized processes refined over dozens of projects."
+      },
+      {
+        question: "What types of applications can you build?",
+        answer: "Micro-SaaS applications with user authentication, payments, and 3-5 core features. Think task management, analytics dashboards, booking systems, or content platforms. Complex enterprise integrations fall outside our scope."
+      },
+      {
+        question: "Can you sign an NDA?",
+        answer: "Yes, we sign NDAs before discussing your project details."
+      },
+      {
+        question: "What technologies do you use?",
+        answer: "Next.js 15 with TypeScript and App Router for frontend. Express.js API with Supabase PostgreSQL database. Vercel for hosting. This stack handles authentication, payments, and real-time features out of the box."
+      },
+      {
+        question: "Do you work with international clients?",
+        answer: "Yes. We invoice in USD and accept international wire transfers. All communication happens via email and video calls."
+      },
+      {
+        question: "What if I'm not technical—can I still work with you?",
+        answer: "Yes. We handle all technical aspects and provide clear documentation. However, you'll need someone technical for ongoing maintenance and future development."
+      }
+    ]
   },
   {
-    question: "What if I need changes after the 14 days?",
-    answer: "Every project includes 30 days of iterations based on user feedback at no additional cost. For changes beyond the original scope or after 30 days, we offer ongoing development at $150/hour or fixed-price quotes for larger feature additions. You own the code, so you can also work with any developer you choose."
+    title: "Project Delivery Questions",
+    faqs: [
+      {
+        question: "What happens if you can't deliver in 14 days?",
+        answer: "You get a full refund. We've never missed a deadline because we pre-qualify projects and scope carefully during our initial call."
+      },
+      {
+        question: "What if I need changes during the 14-day build?",
+        answer: "Minor adjustments to the agreed scope are included. Major changes or additional features are handled as separate projects to maintain our timeline."
+      },
+      {
+        question: "How do you handle project scope creep?",
+        answer: "We define exact scope during our initial call and stick to it. Any requests outside the agreed scope are quoted separately as new work."
+      }
+    ]
   },
   {
-    question: "Do I own all the code and intellectual property?",
-    answer: "Yes, absolutely. Upon final payment, you receive complete ownership of all custom code, databases, designs, and documentation created specifically for your project. We only retain rights to our proprietary development methodologies and any open-source components (which you can use freely under their respective licenses)."
+    title: "Post-Delivery Questions",
+    faqs: [
+      {
+        question: "Who owns the code and intellectual property?",
+        answer: "You own everything. Complete source code, database, and all intellectual property transfer to you on delivery day."
+      },
+      {
+        question: "Do you provide ongoing hosting?",
+        answer: "We offer two options: (1) Managed hosting service for $127/month where we handle everything, or (2) We set up hosting on your accounts and you manage it yourself with our documentation."
+      },
+      {
+        question: "What if something breaks after delivery?",
+        answer: "Critical bugs within 7 days of delivery are fixed free. After that, our Technical Support package ($247/month) covers ongoing maintenance and bug fixes."
+      },
+      {
+        question: "How do ongoing iterations work toward product-market fit?",
+        answer: "We charge $197/hour for development work based on your user data and feedback. Quick iteration cycles are critical for finding product-market fit - you need to rapidly test, measure, and improve based on real user behavior. We provide upfront estimates and deliver in 3-5 day cycles."
+      },
+      {
+        question: "Can I take the code to another developer team?",
+        answer: "Absolutely. You get complete source code ownership and technical documentation. Any developer can take over from where we left off."
+      },
+      {
+        question: "Do you handle marketing or user acquisition?",
+        answer: "No. We build the application. Marketing, user acquisition, and launch strategy are entirely your responsibility."
+      },
+      {
+        question: "Can you integrate with my existing systems?",
+        answer: "Simple API integrations (Stripe, email services, analytics) are possible. Complex enterprise integrations fall outside our beta scope - we'll refer you to specialists."
+      }
+    ]
   },
   {
-    question: "What technologies do you use?",
-    answer: "We use modern, battle-tested technologies: Next.js 14 with TypeScript for frontend, Node.js/Python for backend APIs, PostgreSQL or MongoDB for databases, and AWS/Vercel for hosting. All applications include authentication (Auth0/NextAuth), payment processing (Stripe), and are mobile-responsive by default. We choose technologies based on your specific needs and scaling requirements."
+    title: "Pricing and Payment Questions",
+    faqs: [
+      {
+        question: "What payment methods do you accept?",
+        answer: "We invoice via Xero and accept international wire transfers. Payment is required before we start work."
+      },
+      {
+        question: "Are there any hidden costs?",
+        answer: "No. Our pricing is transparent. The only ongoing costs are optional hosting ($127/month) and support services ($247/month) if you choose them."
+      },
+      {
+        question: "What's included in the 30-day money-back guarantee?",
+        answer: "If you're not satisfied with the delivered application within 30 days, you get a full refund. We stand behind our work."
+      }
+    ]
   },
   {
-    question: "Can you sign an NDA?",
-    answer: "Absolutely. We sign NDAs as a standard part of our process before any project discussions begin. Your business ideas, technical specifications, and proprietary information are completely protected. We've worked with Fortune 500 companies and early-stage startups—confidentiality is non-negotiable."
-  },
-  {
-    question: "What types of applications can you build?",
-    answer: "We specialize in SaaS applications, marketplaces, internal tools, and data-driven applications. Examples include: project management tools, e-commerce platforms, booking systems, CRM software, analytics dashboards, and API-driven applications. If it involves user authentication, payments, and core business logic, we can build it."
-  },
-  {
-    question: "Do you provide ongoing support and maintenance?",
-    answer: "Yes, we offer optional maintenance plans starting at $500/month including security updates, bug fixes, performance monitoring, and 99.9% uptime guarantee. However, because you own the code, you're never locked in—you can maintain it yourself or work with any developer team."
-  },
-  {
-    question: "How do you handle project scope creep?",
-    answer: "We define scope very clearly during the discovery phase and stick to it. That's how we deliver in 14 days. If you want to add features during development, we'll provide a time and cost estimate, then either adjust the timeline or save additional features for the post-launch iteration period."
-  },
-  {
-    question: "What happens if you can't deliver in 14 days?",
-    answer: "If we don't deliver a working MVP that meets the agreed specifications within 14 days, you don't pay. Period. In our 3+ years of operation, we've never missed a deadline when the client provides required information on schedule."
-  },
-  {
-    question: "Can you integrate with existing systems or APIs?",
-    answer: "Yes, we regularly integrate with CRMs (Salesforce, HubSpot), payment processors (Stripe, PayPal), communication tools (Slack, email services), analytics platforms, and custom APIs. Integration complexity is assessed during the discovery phase and included in the project timeline."
-  },
-  {
-    question: "Do you work with international clients?",
-    answer: "Yes, we work with clients globally. All communication is in English, and we accommodate different time zones for project kickoff calls and daily updates. Payment is processed in USD through secure international payment systems."
-  },
-  {
-    question: "What if I'm not technical—can I still work with you?",
-    answer: "Absolutely. Most of our clients are non-technical founders. We translate your business requirements into technical specifications, provide regular updates in plain English, and deliver comprehensive documentation. You don't need to understand code—you just need to understand your business."
+    title: "Beta Program Questions",
+    faqs: [
+      {
+        question: "What does \"beta launch special\" mean?",
+        answer: "We're fine-tuning our processes and looking for collaborative founders who understand we're perfecting our system together. In exchange, you get significant savings on our standard pricing."
+      },
+      {
+        question: "How many projects do you take on each month?",
+        answer: "We limit projects to ensure quality and maintain our 14-day delivery promise. Current availability is shown on our pricing page."
+      },
+      {
+        question: "What makes a good beta client?",
+        answer: "Founders who are responsive to feedback, communicate quickly, understand the building process, and are excited about trying new approaches to rapid development."
+      }
+    ]
   }
 ]
 
 export default function FAQSection() {
-  const [openItems, setOpenItems] = useState<number[]>([])
+  const [openItems, setOpenItems] = useState<string[]>([])
 
-  const toggleItem = (index: number) => {
-    if (openItems.includes(index)) {
-      setOpenItems(openItems.filter(item => item !== index))
+  const toggleItem = (categoryIndex: number, faqIndex: number) => {
+    const itemId = `${categoryIndex}-${faqIndex}`
+    if (openItems.includes(itemId)) {
+      setOpenItems(openItems.filter(item => item !== itemId))
     } else {
-      setOpenItems([...openItems, index])
+      setOpenItems([...openItems, itemId])
     }
   }
 
@@ -85,54 +151,68 @@ export default function FAQSection() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          {faqs.map((faq, index) => (
+        <div className="max-w-5xl mx-auto">
+          {faqCategories.map((category, categoryIndex) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+              key={categoryIndex}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05, duration: 0.5 }}
+              transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="mb-4"
+              className="mb-12"
             >
-              <Card className="bg-white border border-gray-200 hover:border-blue-300 transition-all duration-200 overflow-hidden">
-                <button
-                  onClick={() => toggleItem(index)}
-                  className="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                      {faq.question}
-                    </h3>
-                    <div className="flex-shrink-0">
-                      {openItems.includes(index) ? (
-                        <ChevronUp className="w-5 h-5 text-blue-600" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-400" />
-                      )}
-                    </div>
-                  </div>
-                </button>
-                
-                <AnimatePresence>
-                  {openItems.includes(index) && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                {category.title}
+              </h3>
+              
+              <div className="space-y-4">
+                {category.faqs.map((faq, faqIndex) => {
+                  const itemId = `${categoryIndex}-${faqIndex}`
+                  return (
+                    <Card 
+                      key={faqIndex}
+                      className="bg-white border border-gray-200 hover:border-blue-300 transition-all duration-200 overflow-hidden"
                     >
-                      <div className="px-6 pb-6">
-                        <div className="border-t border-gray-100 pt-4">
-                          <p className="text-gray-600 leading-relaxed">
-                            {faq.answer}
-                          </p>
+                      <button
+                        onClick={() => toggleItem(categoryIndex, faqIndex)}
+                        className="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                      >
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-lg font-semibold text-gray-900 pr-4">
+                            {faq.question}
+                          </h4>
+                          <div className="flex-shrink-0">
+                            {openItems.includes(itemId) ? (
+                              <ChevronUp className="w-5 h-5 text-blue-600" />
+                            ) : (
+                              <ChevronDown className="w-5 h-5 text-gray-400" />
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </Card>
+                      </button>
+                      
+                      <AnimatePresence>
+                        {openItems.includes(itemId) && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                          >
+                            <div className="px-6 pb-6">
+                              <div className="border-t border-gray-100 pt-4">
+                                <p className="text-gray-600 leading-relaxed">
+                                  {faq.answer}
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </Card>
+                  )
+                })}
+              </div>
             </motion.div>
           ))}
         </div>

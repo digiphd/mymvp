@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Clock, FileText, Users, Code, TestTube, Rocket, ArrowDown, Zap } from 'lucide-react'
+import Image from 'next/image'
 
 const oldWaySteps = [
   { icon: FileText, title: "Discovery Phase", desc: "6-8 weeks of meetings", duration: "6-8 weeks" },
@@ -111,7 +112,19 @@ export default function ComparisonSection() {
             </div>
             
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-blue-600 mb-2">MyMVP</h3>
+              <div className="flex items-center justify-center mb-2">
+                <Image 
+                  src="/logo.png" 
+                  alt="myMVP Logo" 
+                  width={32} 
+                  height={32}
+                  className="w-8 h-8 mr-3"
+                />
+                <h3 className="text-3xl font-bold">
+                  <span className="text-black">my</span>
+                  <span className="text-blue-600">MVP</span>
+                </h3>
+              </div>
               <p className="text-gray-500 text-lg">The New Way - 4 Smart Steps</p>
               <div className="mt-4 inline-flex items-center bg-blue-50 px-4 py-2 rounded-full border border-blue-200">
                 <Zap className="w-4 h-4 text-blue-600 mr-2" />

@@ -11,7 +11,7 @@ const principles = [
     title: "Less is Exponentially More",
     description: "From 47 features to 3 core features - we perfect the art of ruthless feature elimination.",
     stat: "3 Core Features",
-    detail: "Authentication + Payments + Your Unique Value"
+    detail: "Auth + Payments + Your Unique Value"
   },
   {
     icon: Users,
@@ -107,10 +107,10 @@ export default function PhilosophySection() {
               The Winning Formula
             </h3>
             <div className="text-2xl font-bold text-gray-900 mb-6">
-              Authentication + Payments + 1-3 Core Features = Success
+              Auth + Payments + 1-3 Core Features + Relentless Marketing = Success
             </div>
             <p className="text-gray-600 mb-8 text-lg">
-              We say NO so your MVP can say YES to success. While your competition is still surveying, you're already scaling.
+              We say NO so your MVP can say YES to success. Building is 10% of success - the other 90% is relentless marketing. While your competition is still surveying, you're already scaling.
             </p>
             
             <Button

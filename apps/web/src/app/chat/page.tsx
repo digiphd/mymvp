@@ -117,7 +117,7 @@ export default function ChatPage() {
             <div className="flex items-center space-x-2">
               <Image 
                 src="/logo.png" 
-                alt="MyMVP Logo" 
+                alt="myMVP Logo" 
                 width={32} 
                 height={32}
                 className="w-8 h-8 rounded-lg"
@@ -150,7 +150,7 @@ export default function ChatPage() {
             <div className="w-16 h-16 mx-auto mb-6">
               <Image 
                 src="/logo.png" 
-                alt="MyMVP Logo" 
+                alt="myMVP Logo" 
                 width={64} 
                 height={64}
                 className="w-16 h-16 rounded-xl shadow-lg"

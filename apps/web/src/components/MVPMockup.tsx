@@ -20,7 +20,7 @@ export default function MVPMockup() {
             <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
             <div className="w-3 h-3 bg-green-400 rounded-full"></div>
           </div>
-          <div className="text-sm text-gray-600 font-medium">MyMVP Analytics Dashboard</div>
+          <div className="text-sm text-gray-600 font-medium">myMVP Analytics Dashboard</div>
           <div className="w-12"></div>
         </div>
 

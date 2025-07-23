@@ -6,17 +6,17 @@ import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
 
 const pocFeatures = [
-  'Clickable prototype with realistic data (Real - Not Figma)',
-  'Core user flows and interface design',
-  'Demo-ready for presentations',
-  'Perfect for pitch decks and investor validation',
-  'Mobile-responsive design',
-  'Realistic data and user interactions'
+  'Working frontend code with realistic data (No Figma)',
+  'AI-generated UI design and user flows',
+  'Fully functional user interface and interactions',
+  'Mobile-responsive React/Next.js application',
+  'Demo-ready for presentations and investor meetings',
+  'No backend logic - frontend only with mock data'
 ]
 
 const mvpFeatures = [
   'Professional full-stack application',
-  'Authentication + Payments + Up to 3 core features',
+  'Auth + Payments + Up to 3 core features',
   'AI-native architecture from day one',
   'Production deployment and hosting setup',
   '30 days of iterations based on user feedback',
@@ -54,8 +54,12 @@ export default function PricingSection() {
             <Card className="p-8 bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Proof of Concept</h3>
-                <div className="text-4xl font-bold text-gray-900 mb-2">$1,997</div>
-                <p className="text-gray-600">Perfect for pitch decks and investor validation</p>
+                <div className="mb-2">
+                  <div className="text-lg text-gray-500 line-through">$1,997</div>
+                  <div className="text-4xl font-bold text-gray-900">$997</div>
+                  <div className="text-sm text-green-600 font-semibold">Save $1,000 - Beta Launch Special</div>
+                </div>
+                <p className="text-gray-600">Working frontend code - no design mockups, just functional interfaces</p>
                 <div className="mt-4 inline-flex items-center bg-gray-100 px-4 py-2 rounded-full border">
                   <span className="text-gray-700 font-semibold">7-day delivery</span>
                 </div>
@@ -82,13 +86,24 @@ export default function PricingSection() {
                 </div>
               </div>
 
+              {/* Pivot Option */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                <h5 className="font-semibold text-blue-900 mb-2">Easy Pivot to Full MVP</h5>
+                <p className="text-sm text-blue-800 mb-3">
+                  Love your proof of concept? Add backend, database, and authentication for just <strong>+$11,000</strong> (total $12,000)
+                </p>
+                <p className="text-xs text-blue-700">
+                  Convert your frontend into a production-ready application with user accounts, payments, and real backend logic
+                </p>
+              </div>
+
               <div className="text-center">
                 <Button
                   size="lg"
                   className="bg-gray-600 hover:bg-gray-700 text-white font-semibold px-8 py-4 text-lg w-full shadow-lg"
                   onClick={() => window.location.href = '/apply'}
                 >
-                  Get Proof of Concept
+                  Apply for PoC
                 </Button>
               </div>
             </Card>
@@ -111,7 +126,11 @@ export default function PricingSection() {
             <Card className="p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-300 shadow-xl hover:shadow-2xl transition-shadow duration-300 h-full">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-blue-600 mb-2">Full MVP</h3>
-                <div className="text-4xl font-bold text-gray-900 mb-2">$7,997</div>
+                <div className="mb-2">
+                  <div className="text-lg text-gray-500 line-through">$24,000</div>
+                  <div className="text-4xl font-bold text-gray-900">$12,000</div>
+                  <div className="text-sm text-green-600 font-semibold">Save $12,000 - Beta Launch Special</div>
+                </div>
                 <p className="text-gray-600">Working application ready for real users</p>
                 <div className="mt-4 inline-flex items-center bg-blue-100 px-4 py-2 rounded-full border border-blue-200">
                   <span className="text-blue-700 font-semibold">14-day delivery</span>
@@ -152,7 +171,7 @@ export default function PricingSection() {
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg w-full shadow-lg"
                   onClick={() => window.location.href = '/apply'}
                 >
-                  Build My MVP Now
+                  Apply to Work With Us
                 </Button>
               </div>
             </Card>

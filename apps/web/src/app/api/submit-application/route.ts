@@ -20,13 +20,13 @@ export async function POST(request: NextRequest) {
     const acknowledgmentEmail = {
       from: process.env.FROM_EMAIL || 'noreply@mymvp.io',
       to: formData.email,
-      subject: 'Application Received - MyMVP Partnership',
+      subject: 'Application Received - myMVP Partnership',
       html: `
         <!DOCTYPE html>
         <html>
         <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #0B1426 0%, #00F5FF 100%); padding: 30px; text-align: center; border-radius: 10px; margin-bottom: 20px;">
-            <h1 style="color: white; margin: 0; font-size: 28px;">MyMVP</h1>
+            <h1 style="color: white; margin: 0; font-size: 28px;">myMVP</h1>
             <p style="color: #00F5FF; margin: 10px 0 0 0; font-size: 16px;">AI-Powered MVP Development</p>
           </div>
           
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
           
           <p style="margin-top: 30px;">
             Best regards,<br>
-            <strong>The MyMVP Team</strong><br>
+            <strong>The myMVP Team</strong><br>
             <em>Transforming visions into reality, one MVP at a time</em>
           </p>
           

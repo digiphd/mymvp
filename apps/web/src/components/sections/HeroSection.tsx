@@ -39,7 +39,7 @@ export default function HeroSection() {
               whileHover={{ scale: 1.02 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900 cursor-default"
             >
-              Your MVP, Built Right
+              Validation-Ready Micro-SaaS in 14 Days
             </motion.h1>
 
             <motion.p
@@ -48,26 +48,50 @@ export default function HeroSection() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed"
             >
-              AI-powered development systems that turn your vision into a{' '}
+              Ready for{' '}
               <motion.span 
                 whileHover={{ scale: 1.05 }}
                 className="text-blue-600 font-semibold cursor-default"
               >
-                working MVP
-              </motion.span>{' '}
-              in 14 days
+                real customers, real payments, real validation
+              </motion.span>
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              whileHover={{ scale: 1.02 }}
               className="mb-8"
             >
-              <p className="text-xl md:text-2xl font-bold text-blue-600 cursor-default">
-                "Your competition is still planning, you're already launching"
-              </p>
+              <div className="flex items-center justify-center lg:justify-start space-x-2 md:space-x-4 text-lg md:text-xl font-bold">
+                <motion.span 
+                  whileHover={{ scale: 1.1 }}
+                  className="bg-blue-600 text-white px-3 py-2 rounded-lg cursor-default"
+                >
+                  Build
+                </motion.span>
+                <span className="text-blue-600">→</span>
+                <motion.span 
+                  whileHover={{ scale: 1.1 }}
+                  className="bg-green-600 text-white px-3 py-2 rounded-lg cursor-default"
+                >
+                  Test
+                </motion.span>
+                <span className="text-green-600">→</span>
+                <motion.span 
+                  whileHover={{ scale: 1.1 }}
+                  className="bg-purple-600 text-white px-3 py-2 rounded-lg cursor-default"
+                >
+                  Learn
+                </motion.span>
+                <span className="text-purple-600">→</span>
+                <motion.span 
+                  whileHover={{ scale: 1.1 }}
+                  className="bg-orange-600 text-white px-3 py-2 rounded-lg cursor-default"
+                >
+                  Iterate
+                </motion.span>
+              </div>
             </motion.div>
 
             <motion.div
@@ -83,7 +107,7 @@ export default function HeroSection() {
                   onClick={() => router.push('/apply')}
                 >
                   <Sparkles className="mr-2 w-5 h-5" />
-                  Build My MVP
+                  Apply to Work With Us
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>

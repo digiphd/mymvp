@@ -34,7 +34,7 @@ export default function Footer() {
               <div className="flex items-center space-x-3 mb-4">
                 <Image 
                   src="/logo.png" 
-                  alt="MyMVP Logo" 
+                  alt="myMVP Logo" 
                   width={32} 
                   height={32}
                   className="w-8 h-8"
@@ -55,7 +55,7 @@ export default function Footer() {
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 group"
                   onClick={() => window.location.href = '/apply'}
                 >
-                  Build My MVP
+                  Apply to Work With Us
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>
@@ -209,7 +209,7 @@ export default function Footer() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <div>
-              © {currentYear} MyMVP. All rights reserved.
+              © {currentYear} myMVP. All rights reserved.
             </div>
             <div className="mt-2 md:mt-0">
               <span className="mr-4">Built with AI in 14 days</span>

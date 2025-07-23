@@ -7,33 +7,33 @@ import { X, Clock, Layers, Code, Search, Users } from 'lucide-react'
 const dontDoItems = [
   {
     icon: Clock,
-    title: '6-Month "Discovery" Phases',
-    description: "We don't believe in endless planning meetings. You know your idea - we build it fast."
+    title: 'Endless "Discovery" Phases',
+    description: "While agencies spend months planning, we're shipping. Your idea doesn't need a 50-page discovery document."
   },
   {
     icon: Layers,
-    title: 'Build 47-Feature Monsters',
-    description: "Your MVP isn't a museum. We say NO to feature bloat so your product can say YES to success."
+    title: 'WordPress with 47 Plugins',
+    description: "WordPress breaks. Plugins conflict. Updates fail. We build real web applications, not digital house of cards."
   },
   {
     icon: Code,
-    title: 'Promise MVPs, Deliver Mockups',
-    description: "While agencies deliver prototypes, we deliver working applications with solid backends."
+    title: 'No-Code "Solutions"',
+    description: "Bubble and Webflow hit walls fast. You'll outgrow them in months, then need a real application anyway."
   },
   {
     icon: Users,
-    title: 'Manual Coding Processes',
-    description: "We don't hack code manually. Our AI-orchestrated systems deliver working applications at startup speed."
+    title: 'Junior Developer Teams',
+    description: "Your MVP isn't a training ground. We use senior developers who've shipped 100+ applications."
   },
   {
     icon: Search,
-    title: 'Research Instead of Building',
-    description: "Market research is the new procrastination. We build real products with real user data in 2 weeks."
+    title: 'Technology Experiments',
+    description: "No debates about React vs Vue vs Angular. We use proven stacks that work, scale, and ship fast."
   },
   {
     icon: X,
-    title: 'Disappear After Launch',
-    description: "We stick around to help you iterate based on real user feedback and growth data."
+    title: 'Custom Everything from Scratch',
+    description: "Why reinvent authentication when Auth0 exists? We use best-in-class tools and focus on your unique value."
   }
 ]
 

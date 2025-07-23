@@ -35,7 +35,7 @@ export default function TermsOfService() {
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
               <h2 className="text-xl font-semibold text-blue-900 mb-3">Agreement Overview</h2>
               <p className="text-blue-800 mb-0">
-                These Terms of Service govern your use of MyMVP's website and services. By using our services, you agree to be bound by these terms. Please read them carefully.
+                These Terms of Service govern your use of myMVP's website and services. By using our services, you agree to be bound by these terms. Please read them carefully.
               </p>
             </div>
 
@@ -43,11 +43,11 @@ export default function TermsOfService() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
               
               <p className="text-gray-700 mb-4">
-                By accessing or using MyMVP's website, services, or submitting an application, you agree to comply with and be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, please do not use our services.
+                By accessing or using myMVP's website, services, or submitting an application, you agree to comply with and be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, please do not use our services.
               </p>
               
               <p className="text-gray-700 mb-6">
-                These terms apply to all visitors, users, and clients of MyMVP's services, including but not limited to our website, consultation services, MVP development services, and any related communications.
+                These terms apply to all visitors, users, and clients of myMVP's services, including but not limited to our website, consultation services, MVP development services, and any related communications.
               </p>
             </section>
 
@@ -55,7 +55,7 @@ export default function TermsOfService() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Description of Services</h2>
               
               <p className="text-gray-700 mb-4">
-                MyMVP provides AI-powered software development services, specifically:
+                myMVP provides AI-powered software development services, specifically:
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-6">
                 <li><strong>MVP Development:</strong> Custom minimum viable product development using AI-accelerated processes</li>
@@ -86,7 +86,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Client Selection</h3>
               <p className="text-gray-700 mb-4">
-                MyMVP reserves the right to:
+                myMVP reserves the right to:
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-6">
                 <li>Accept or decline any project application at our sole discretion</li>
@@ -186,9 +186,9 @@ export default function TermsOfService() {
                 <li>Ownership of project-specific design assets and content</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">MyMVP Reserved Rights</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">myMVP Reserved Rights</h3>
               <p className="text-gray-700 mb-4">
-                MyMVP retains rights to:
+                myMVP retains rights to:
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-6">
                 <li>Our proprietary development methodologies and processes</li>
@@ -234,7 +234,7 @@ export default function TermsOfService() {
               
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Limited Warranty</h3>
               <p className="text-gray-700 mb-4">
-                MyMVP warrants that services will be performed in a professional manner consistent with industry standards. We provide:
+                myMVP warrants that services will be performed in a professional manner consistent with industry standards. We provide:
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-6">
                 <li>30-day warranty on delivered code against defects</li>
@@ -261,7 +261,7 @@ export default function TermsOfService() {
                 TO THE MAXIMUM EXTENT PERMITTED BY LAW:
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-6">
-                <li>MyMVP's total liability shall not exceed the amount paid for services</li>
+                <li>myMVP's total liability shall not exceed the amount paid for services</li>
                 <li>We are not liable for indirect, incidental, or consequential damages</li>
                 <li>We are not responsible for business losses, lost profits, or lost data</li>
                 <li>Liability limitations apply regardless of the form of action</li>
@@ -296,13 +296,13 @@ export default function TermsOfService() {
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-6">
                 <li>Client remains responsible for payment of work completed</li>
-                <li>MyMVP will deliver work completed up to termination date</li>
+                <li>myMVP will deliver work completed up to termination date</li>
                 <li>Any prepaid fees for unperformed work will be refunded</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Termination by MyMVP</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Termination by myMVP</h3>
               <p className="text-gray-700 mb-4">
-                MyMVP may terminate services for:
+                myMVP may terminate services for:
               </p>
               <ul className="list-disc pl-6 text-gray-700 mb-6">
                 <li>Non-payment of fees</li>
@@ -381,7 +381,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Assignment</h3>
               <p className="text-gray-700 mb-6">
-                Clients may not assign their rights under this agreement without written consent. MyMVP may assign this agreement in connection with a business transfer.
+                Clients may not assign their rights under this agreement without written consent. myMVP may assign this agreement in connection with a business transfer.
               </p>
             </section>
 
