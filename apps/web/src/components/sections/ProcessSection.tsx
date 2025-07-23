@@ -7,28 +7,30 @@ import { Zap, Code, Palette, Rocket, Database, Shield, Smartphone, TestTube } fr
 const processPhases = [
   {
     days: "Days 1-2",
-    title: "AI Discovery & Architecture",
+    title: "Requirements & Frontend Design",
     color: "from-blue-500 to-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
     textColor: "text-blue-600",
-    icon: Zap,
+    icon: Palette,
     tasks: [
       "Requirements capture and analysis",
-      "AI-generated technical architecture", 
       "Feature prioritization and scope definition",
-      "Database schema and API design"
+      "AI-generated UI design and user flows",
+      "Interactive frontend prototype (PoC)",
+      "Customer feedback and design approval"
     ]
   },
   {
     days: "Days 3-8", 
-    title: "Core Development",
+    title: "Backend Development",
     color: "from-green-500 to-green-600",
     bgColor: "bg-green-50",
     borderColor: "border-green-200",
     textColor: "text-green-600",
     icon: Code,
     tasks: [
+      "Database schema and API design",
       "Backend API development",
       "Database implementation",
       "Authentication system",
@@ -38,17 +40,18 @@ const processPhases = [
   },
   {
     days: "Days 9-12",
-    title: "Frontend & Integration", 
+    title: "Integration & Polish", 
     color: "from-purple-500 to-purple-600",
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
     textColor: "text-purple-600",
-    icon: Palette,
+    icon: Zap,
     tasks: [
-      "UI/UX implementation",
       "Frontend/backend integration",
       "Mobile responsive design",
-      "User flow optimization"
+      "User flow optimization",
+      "Performance optimization",
+      "Bug fixes and refinements"
     ]
   },
   {
@@ -61,7 +64,7 @@ const processPhases = [
     icon: Rocket,
     tasks: [
       "Quality assurance testing",
-      "Performance optimization", 
+      "Final performance optimization",
       "Production deployment",
       "Documentation and handover"
     ]
@@ -70,17 +73,17 @@ const processPhases = [
 
 const dailyMilestones = [
   { day: 1, icon: Zap, task: "Project kickoff & requirements" },
-  { day: 2, icon: Database, task: "Architecture & database design" },
-  { day: 3, icon: Code, task: "Backend API foundation" },
+  { day: 2, icon: Palette, task: "Frontend PoC & customer feedback" },
+  { day: 3, icon: Database, task: "Database schema & API design" },
   { day: 4, icon: Shield, task: "Authentication system" },
   { day: 5, icon: Code, task: "Core features development" },
   { day: 6, icon: Code, task: "Payment integration" },
-  { day: 7, icon: Code, task: "Business logic completion" },
+  { day: 7, icon: Code, task: "Backend API completion" },
   { day: 8, icon: TestTube, task: "Backend testing" },
-  { day: 9, icon: Palette, task: "Frontend UI development" },
-  { day: 10, icon: Smartphone, task: "Responsive design" },
-  { day: 11, icon: Code, task: "Frontend/backend integration" },
-  { day: 12, icon: Palette, task: "User experience optimization" },
+  { day: 9, icon: Code, task: "Frontend/backend integration" },
+  { day: 10, icon: Smartphone, task: "Mobile responsive design" },
+  { day: 11, icon: Palette, task: "User flow optimization" },
+  { day: 12, icon: Zap, task: "Performance optimization" },
   { day: 13, icon: TestTube, task: "QA testing & bug fixes" },
   { day: 14, icon: Rocket, task: "Production deployment" }
 ]

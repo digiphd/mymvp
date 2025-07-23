@@ -18,7 +18,8 @@ const oldWaySteps = [
 
 const newWaySteps = [
   { icon: Zap, title: "AI Discovery", desc: "1-day requirements capture", duration: "1 day" },
-  { icon: Code, title: "AI-Generated MVP", desc: "Full-stack app with AI", duration: "10 days" },
+  { icon: Code, title: "Frontend First", desc: "AI-generated UI with rapid feedback cycles - get customer approval", duration: "3 days" },
+  { icon: Code, title: "Backend Build", desc: "Full-stack integration with authentication, payments, and core features", duration: "7 days" },
   { icon: TestTube, title: "Quality Assurance", desc: "Automated testing", duration: "2 days" },
   { icon: Rocket, title: "Launch Ready", desc: "Production deployment", duration: "1 day" }
 ]
@@ -125,7 +126,7 @@ export default function ComparisonSection() {
                   <span className="text-blue-600">MVP</span>
                 </h3>
               </div>
-              <p className="text-gray-500 text-lg">The New Way - 4 Smart Steps</p>
+              <p className="text-gray-500 text-lg">The New Way - 5 Smart Steps</p>
               <div className="mt-4 inline-flex items-center bg-blue-50 px-4 py-2 rounded-full border border-blue-200">
                 <Zap className="w-4 h-4 text-blue-600 mr-2" />
                 <span className="text-blue-600 font-semibold">14 Days Total</span>
@@ -171,20 +172,6 @@ export default function ComparisonSection() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-2xl font-bold text-blue-600 mb-4">
-            "Your competition is still planning, you're already launching"
-          </p>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            While they code manually, we orchestrate AI systems. While they promise MVPs, we deliver working applications with solid backends.
-          </p>
-        </motion.div>
       </div>
     </section>
   )

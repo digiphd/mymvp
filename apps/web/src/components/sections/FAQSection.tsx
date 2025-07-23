@@ -40,7 +40,7 @@ const faqCategories = [
     faqs: [
       {
         question: "What happens if you can't deliver in 14 days?",
-        answer: "You get a full refund. We've never missed a deadline because we pre-qualify projects and scope carefully during our initial call."
+        answer: "We aim for 14-day delivery but work in 2-week sprints. If your project requires additional development time, we complete it within 28 days total at no extra cost. We communicate timeline expectations clearly during our initial consultation."
       },
       {
         question: "What if I need changes during the 14-day build?",
@@ -61,7 +61,7 @@ const faqCategories = [
       },
       {
         question: "Do you provide ongoing hosting?",
-        answer: "We offer two options: (1) Managed hosting service for $127/month where we handle everything, or (2) We set up hosting on your accounts and you manage it yourself with our documentation."
+        answer: "We offer two options: (1) Managed hosting service for $127/month plus infrastructure costs (Vercel Pro $20/month, Supabase Pro $25/month) where we handle everything, or (2) We set up hosting on your accounts and you manage it yourself with our documentation."
       },
       {
         question: "What if something breaks after delivery?",
@@ -175,7 +175,7 @@ export default function FAQSection() {
                     >
                       <button
                         onClick={() => toggleItem(categoryIndex, faqIndex)}
-                        className="w-full p-4 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        className="w-full px-4 py-2 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                       >
                         <div className="flex items-center justify-between">
                           <h4 className="text-base font-semibold text-gray-900 pr-4">
@@ -199,9 +199,9 @@ export default function FAQSection() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                           >
-                            <div className="px-4 pb-4">
-                              <div className="border-t border-gray-100 pt-3">
-                                <p className="text-gray-600 text-sm leading-relaxed">
+                            <div className="px-4 pb-2">
+                              <div className="border-t border-gray-100 pt-2">
+                                <p className="text-gray-600 text-sm leading-snug">
                                   {faq.answer}
                                 </p>
                               </div>

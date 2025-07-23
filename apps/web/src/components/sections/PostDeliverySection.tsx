@@ -70,8 +70,8 @@ export default function PostDeliverySection() {
                 <div className="text-sm text-gray-500">Hosting + infrastructure management</div>
               </div>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Vercel Pro hosting ($20/month value)</li>
-                <li>• Supabase Pro database ($25/month value)</li>
+                <li>• Vercel Pro hosting (you pay $20/month direct)</li>
+                <li>• Supabase Pro database (you pay $25/month direct)</li>
                 <li>• SSL certificates and domain management</li>
                 <li>• Performance monitoring and alerts</li>
                 <li>• Automated backups and disaster recovery</li>
