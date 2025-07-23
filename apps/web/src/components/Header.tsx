@@ -16,16 +16,20 @@ export default function Header() {
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'What We Don\'t Do', href: '#what-we-dont-do' },
     { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'About', href: '/about' }
   ]
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start',
-      })
+  const handleNavigation = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start',
+        })
+      }
+    } else {
+      router.push(href)
     }
   }
 
@@ -60,7 +64,7 @@ export default function Header() {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavigation(item.href)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -113,7 +117,7 @@ export default function Header() {
                 <button
                   key={item.name}
                   onClick={() => {
-                    scrollToSection(item.href)
+                    handleNavigation(item.href)
                     setIsMenuOpen(false)
                   }}
                   className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 py-2 text-left"
