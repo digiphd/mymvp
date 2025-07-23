@@ -49,7 +49,7 @@ export default function WhatWeDontDoSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            What We Don't Do
+            What We <span className="text-blue-600">Don't</span> Do
           </h2>
         </motion.div>
 

@@ -16,7 +16,7 @@ export default function PostDeliverySection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            What Happens After Delivery
+            What Happens <span className="text-blue-600">After</span> Delivery
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             <em>Clear handoff and ongoing relationship</em>

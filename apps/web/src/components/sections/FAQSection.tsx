@@ -140,7 +140,7 @@ export default function FAQSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            Frequently Asked Questions
+            Frequently Asked <span className="text-blue-600">Questions</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Everything you need to know about our process, guarantees, and deliverables

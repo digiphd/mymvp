@@ -100,7 +100,7 @@ export default function ProcessSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            Our 14-Day Process
+            Our <span className="text-blue-600">14-Day</span> Process
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             How we transform your idea into a working MVP in two weeks

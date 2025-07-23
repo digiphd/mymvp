@@ -17,7 +17,7 @@ export default function CatchSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            What's the Catch?
+            What's the <span className="text-blue-600">Catch</span>?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We're honest about what it takes to deliver at this speed and cost

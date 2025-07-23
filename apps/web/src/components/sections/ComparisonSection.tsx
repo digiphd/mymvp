@@ -36,7 +36,7 @@ export default function ComparisonSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            The Old Way vs The New Way
+            The Old Way vs The <span className="text-blue-600">New Way</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             While traditional agencies promise MVPs and deliver mockups, we deliver working applications

@@ -19,7 +19,7 @@ export default function FinalCTASection() {
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            Ready to Stop Planning and Start Building?
+            Ready to Stop Planning and Start <span className="text-blue-600">Building</span>?
           </h2>
           
           <p className="text-xl text-gray-600 mb-12 leading-relaxed">

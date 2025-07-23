@@ -16,7 +16,7 @@ export default function LaunchPrepSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            While We Build, You Prepare to Launch
+            While We Build, You Prepare to <span className="text-blue-600">Launch</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             <em>We only work with relentless founders</em>

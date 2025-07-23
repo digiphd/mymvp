@@ -48,7 +48,7 @@ export default function PhilosophySection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            What Makes a Great MVP
+            What Makes a <span className="text-blue-600">Great</span> MVP
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             The controversial truth about validation and why building beats researching

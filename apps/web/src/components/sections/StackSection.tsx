@@ -46,7 +46,7 @@ export default function StackSection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             One Stack.<br />
-            <span className="text-blue-600">Zero Confusion.</span>
+            <span className="text-blue-600">Zero</span> Confusion.
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We use the same proven technology stack for every project. No experiments, no debates, 

@@ -36,7 +36,7 @@ export default function PricingSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-            Two Ways to Start
+            <span className="text-blue-600">Two Ways</span> to Start
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the path that fits your current needs and budget

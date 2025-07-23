@@ -39,7 +39,7 @@ export default function HeroSection() {
               whileHover={{ scale: 1.02 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900 cursor-default"
             >
-              Validation-Ready Micro-SaaS in 14 Days
+              <span className="text-blue-600">Validation-Ready</span> Micro-SaaS in 14 Days
             </motion.h1>
 
             <motion.p
