@@ -278,7 +278,50 @@ export default function PrivacyPolicy() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Compliance with Laws</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Intellectual Property and Idea Protection</h2>
+              
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Your Ideas Are Safe With Us</h3>
+              <p className="text-gray-700 mb-4">
+                We understand that sharing your business concept can feel vulnerable. Here's our commitment to you and why you can trust us with your ideas:
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Partnership Philosophy</h3>
+              <p className="text-gray-700 mb-4">
+                We're development partners, not competitors. Our business model is built on helping you succeed - your success is our success. We profit by building great products for clients, not by competing with them.
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Why Ideas Stay Safe</h3>
+              <p className="text-gray-700 mb-4">
+                While we take confidentiality seriously, the reality is that successful businesses are built on execution, not just ideas. The real value lies in:
+              </p>
+              <ul className="list-disc pl-6 text-gray-700 mb-4">
+                <li>Understanding your target market deeply</li>
+                <li>Executing flawless product development</li>
+                <li>Mastering marketing and user acquisition</li>
+                <li>Iterating based on real user feedback</li>
+                <li>Building sustainable business operations</li>
+              </ul>
+              <p className="text-gray-700 mb-4">
+                We focus on what we do best (rapid MVP development) while you focus on what matters most (building your business and acquiring customers).
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Specific Commitments</h3>
+              <ul className="list-disc pl-6 text-gray-700 mb-4">
+                <li><strong>Non-Compete Guarantee:</strong> We will never develop or launch competing products based on your concepts</li>
+                <li><strong>Confidential Treatment:</strong> All project information is treated as confidential business information</li>
+                <li><strong>Team Access Controls:</strong> Only team members directly involved in your project have access to your details</li>
+                <li><strong>Post-Project Protection:</strong> Our confidentiality obligations continue indefinitely after project completion</li>
+                <li><strong>IP Ownership:</strong> You retain all intellectual property rights to your ideas, concepts, and final product</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Focus on What Matters</h3>
+              <p className="text-gray-700 mb-6">
+                Your ideas are protected, but more importantly, we're here to help you move beyond the idea phase to what really creates value: a working product that solves real problems for real users. That's where businesses are built and fortunes are made.
+              </p>
+            </section>
+
+            <section className="mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Compliance with Laws</h2>
               
               <p className="text-gray-700 mb-4">
                 This Privacy Policy is designed to comply with applicable privacy laws, including:
