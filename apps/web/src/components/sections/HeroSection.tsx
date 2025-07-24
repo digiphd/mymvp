@@ -37,7 +37,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
               whileHover={{ scale: 1.02 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900 cursor-default"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900 cursor-default"
             >
               <span className="text-blue-600">Validation-Ready</span> Micro-SaaS in 14 Days
             </motion.h1>
@@ -63,31 +63,31 @@ export default function HeroSection() {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="mb-8"
             >
-              <div className="flex items-center justify-center lg:justify-start space-x-2 md:space-x-4 text-lg md:text-xl font-bold">
+              <div className="flex items-center justify-center lg:justify-start space-x-1 sm:space-x-2 md:space-x-4 text-base sm:text-lg md:text-xl font-bold overflow-x-auto">
                 <motion.span 
                   whileHover={{ scale: 1.1 }}
-                  className="bg-blue-600 text-white px-3 py-2 rounded-lg cursor-default"
+                  className="bg-blue-600 text-white px-2 sm:px-3 py-2 rounded-lg cursor-default text-sm sm:text-base flex-shrink-0"
                 >
                   Build
                 </motion.span>
                 <span className="text-blue-600">→</span>
                 <motion.span 
                   whileHover={{ scale: 1.1 }}
-                  className="bg-green-600 text-white px-3 py-2 rounded-lg cursor-default"
+                  className="bg-green-600 text-white px-2 sm:px-3 py-2 rounded-lg cursor-default text-sm sm:text-base flex-shrink-0"
                 >
                   Test
                 </motion.span>
                 <span className="text-green-600">→</span>
                 <motion.span 
                   whileHover={{ scale: 1.1 }}
-                  className="bg-purple-600 text-white px-3 py-2 rounded-lg cursor-default"
+                  className="bg-purple-600 text-white px-2 sm:px-3 py-2 rounded-lg cursor-default text-sm sm:text-base flex-shrink-0"
                 >
                   Learn
                 </motion.span>
                 <span className="text-purple-600">→</span>
                 <motion.span 
                   whileHover={{ scale: 1.1 }}
-                  className="bg-orange-600 text-white px-3 py-2 rounded-lg cursor-default"
+                  className="bg-orange-600 text-white px-2 sm:px-3 py-2 rounded-lg cursor-default text-sm sm:text-base flex-shrink-0"
                 >
                   Iterate
                 </motion.span>

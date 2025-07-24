@@ -78,9 +78,9 @@ export default function PricingSection() {
                       className="flex items-start space-x-3"
                     >
                       <div className="p-1 bg-gray-100 rounded-full border border-gray-300 mt-0.5 flex-shrink-0">
-                        <Check className="w-3 h-3 text-gray-600" />
+                        <Check className="w-4 h-4 text-gray-600" />
                       </div>
-                      <span className="text-gray-600 text-sm">{feature}</span>
+                      <span className="text-gray-600 text-sm sm:text-base">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -147,9 +147,9 @@ export default function PricingSection() {
                       className="flex items-start space-x-3"
                     >
                       <div className="p-1 bg-blue-50 rounded-full border border-blue-200 mt-0.5 flex-shrink-0">
-                        <Check className="w-3 h-3 text-blue-600" />
+                        <Check className="w-4 h-4 text-blue-600" />
                       </div>
-                      <span className="text-gray-600 text-sm">{feature}</span>
+                      <span className="text-gray-600 text-sm sm:text-base">{feature}</span>
                     </motion.div>
                   ))}
                 </div>

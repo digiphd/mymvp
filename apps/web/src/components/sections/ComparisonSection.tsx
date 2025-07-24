@@ -60,7 +60,7 @@ export default function ComparisonSection() {
               </div>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-2 sm:space-y-4">
               {oldWaySteps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -91,7 +91,7 @@ export default function ComparisonSection() {
                   
                   {/* Connection Line */}
                   {index < oldWaySteps.length - 1 && (
-                    <div className="absolute left-6 top-20 w-0.5 h-4 bg-red-200"></div>
+                    <div className="hidden sm:block absolute left-6 top-20 w-0.5 h-4 bg-red-200"></div>
                   )}
                 </motion.div>
               ))}
@@ -133,7 +133,7 @@ export default function ComparisonSection() {
               </div>
             </div>
             
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-6">
               {newWaySteps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -164,7 +164,7 @@ export default function ComparisonSection() {
                   
                   {/* Connection Line */}
                   {index < newWaySteps.length - 1 && (
-                    <div className="absolute left-8 top-24 w-0.5 h-6 bg-blue-300"></div>
+                    <div className="hidden sm:block absolute left-8 top-24 w-0.5 h-6 bg-blue-300"></div>
                   )}
                 </motion.div>
               ))}

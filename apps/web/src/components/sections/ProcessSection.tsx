@@ -109,7 +109,7 @@ export default function ProcessSection() {
 
         {/* Process Phases */}
         <div className="relative mb-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {processPhases.map((phase, index) => (
               <motion.div
                 key={index}
@@ -119,7 +119,7 @@ export default function ProcessSection() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <Card className={`p-6 ${phase.bgColor} ${phase.borderColor} border-2 hover:shadow-lg transition-all duration-300 h-full relative z-10`}>
+                <Card className={`p-4 sm:p-6 ${phase.bgColor} ${phase.borderColor} border-2 hover:shadow-lg transition-all duration-300 h-full relative z-10`}>
                   <div className="text-center mb-6">
                     <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${phase.color} flex items-center justify-center`}>
                       <phase.icon className="w-8 h-8 text-white" />
@@ -172,7 +172,7 @@ export default function ProcessSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: (index + 1) * 0.1, duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="lg:hidden absolute top-full left-1/2 transform -translate-x-1/2 translate-y-4 z-20"
+                    className="hidden sm:block lg:hidden absolute top-full left-1/2 transform -translate-x-1/2 translate-y-4 z-20"
                   >
                     <div className="flex flex-col items-center">
                       <div className="w-0.5 h-8 bg-gradient-to-b from-blue-400 to-blue-600"></div>

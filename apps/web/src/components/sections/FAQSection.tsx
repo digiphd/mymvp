@@ -171,17 +171,17 @@ export default function FAQSection() {
                     >
                       <button
                         onClick={() => toggleItem(categoryIndex, faqIndex)}
-                        className="w-full px-4 py-2 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        className="w-full px-4 py-4 sm:py-3 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px]"
                       >
                         <div className="flex items-center justify-between">
-                          <h4 className="text-base font-semibold text-gray-900 pr-4">
+                          <h4 className="text-base sm:text-lg font-semibold text-gray-900 pr-4">
                             {faq.question}
                           </h4>
                           <div className="flex-shrink-0">
                             {openItems.includes(itemId) ? (
-                              <ChevronUp className="w-4 h-4 text-blue-600" />
+                              <ChevronUp className="w-5 h-5 text-blue-600" />
                             ) : (
-                              <ChevronDown className="w-4 h-4 text-gray-400" />
+                              <ChevronDown className="w-5 h-5 text-gray-400" />
                             )}
                           </div>
                         </div>
@@ -197,7 +197,7 @@ export default function FAQSection() {
                           >
                             <div className="px-4 pb-2">
                               <div className="border-t border-gray-100 pt-2">
-                                <p className="text-gray-600 text-sm leading-snug">
+                                <p className="text-gray-600 text-base leading-relaxed">
                                   {faq.answer}
                                 </p>
                               </div>
