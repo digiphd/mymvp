@@ -55,8 +55,8 @@ export default function PricingSection() {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Proof of Concept</h3>
                 <div className="mb-2">
-                  <div className="text-lg text-gray-500 line-through">$1,997</div>
-                  <div className="text-4xl font-bold text-gray-900">$997</div>
+                  <div className="text-lg text-gray-500 line-through">$1,997 USD</div>
+                  <div className="text-4xl font-bold text-gray-900">$997 USD</div>
                   <div className="text-sm text-green-600 font-semibold">Save $1,000 - Beta Launch Special</div>
                 </div>
                 <p className="text-gray-600">Working frontend code - no design mockups, just functional interfaces</p>
@@ -124,9 +124,9 @@ export default function PricingSection() {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-blue-600 mb-2">Full MVP</h3>
                 <div className="mb-2">
-                  <div className="text-lg text-gray-500 line-through">$7,997</div>
-                  <div className="text-4xl font-bold text-gray-900">$5,997</div>
-                  <div className="text-sm text-green-600 font-semibold">Save $2,000 - Beta Launch Special</div>
+                  <div className="text-lg text-gray-500 line-through">$11,500 USD</div>
+                  <div className="text-4xl font-bold text-gray-900">$7,600 USD</div>
+                  <div className="text-sm text-green-600 font-semibold">Save $3,900 - Beta Launch Special</div>
                 </div>
                 <p className="text-gray-600">Working application ready for real users</p>
                 <div className="mt-4 inline-flex items-center bg-blue-100 px-4 py-2 rounded-full border border-blue-200">
