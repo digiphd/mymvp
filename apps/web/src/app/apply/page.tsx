@@ -74,7 +74,7 @@ Then generate a comprehensive PRD with these exact sections:
 ## 4. TECHNICAL ARCHITECTURE
 - Data Model & Entities
 - Integration Requirements
-- Performance & Scalability Needs
+- Performance & Growth Requirements
 - Security & Compliance Requirements
 
 ## 5. MONETIZATION STRATEGY
@@ -148,6 +148,23 @@ interface QualificationResult {
 
 export default function ApplicationPage() {
   const [currentStep, setCurrentStep] = useState(1)
+  
+  // Helper functions to change step and scroll to top
+  const goToStep = (step: number) => {
+    setCurrentStep(step)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  
+  const nextStep = () => {
+    setCurrentStep(prev => prev + 1)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  
+  const prevStep = () => {
+    setCurrentStep(prev => prev - 1)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -450,7 +467,7 @@ export default function ApplicationPage() {
                         className="bg-blue-600 hover:bg-blue-700 text-white w-full"
                         onClick={() => {
                           setQualificationResult(null);
-                          setCurrentStep(1);
+                          goToStep(1);
                         }}
                       >
                         Review Your Application
@@ -650,32 +667,32 @@ export default function ApplicationPage() {
                     </h4>
                     <ol className="space-y-3 text-blue-700">
                       <li className="flex items-start">
-                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">1</span>
+                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">1</span>
                         Copy the prompt above
                       </li>
                       <li className="flex items-start">
-                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">2</span>
+                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">2</span>
                         Open ChatGPT (or Claude)
                       </li>
                       <li className="flex items-start">
-                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">3</span>
+                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">3</span>
                         <div>
-                          Paste the prompt and replace the placeholder text with your actual business idea
+                          Paste the prompt and replace the placeholder text
                           <div className="text-xs text-blue-600 mt-1 font-mono bg-blue-100 px-2 py-1 rounded">
                             [REPLACE WITH YOUR 2-3 SENTENCE BUSINESS DESCRIPTION]
                           </div>
                         </div>
                       </li>
                       <li className="flex items-start">
-                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">4</span>
+                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">4</span>
                         Answer the AI's questions thoroughly
                       </li>
                       <li className="flex items-start">
-                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">5</span>
+                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">5</span>
                         Copy the complete PRD output
                       </li>
                       <li className="flex items-start">
-                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">6</span>
+                        <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">6</span>
                         Paste it in Step 2
                       </li>
                     </ol>
@@ -1294,7 +1311,7 @@ export default function ApplicationPage() {
               {currentStep > 1 && (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentStep(currentStep - 1)}
+                  onClick={prevStep}
                   className="bg-white border-blue-600 text-blue-600 hover:bg-blue-50 w-full sm:w-auto"
                 >
                   <ArrowLeft className="w-4 h-4 mr-2" />
@@ -1306,7 +1323,7 @@ export default function ApplicationPage() {
               <div className={currentStep === 1 ? "w-full flex justify-end" : "w-full sm:w-auto sm:ml-auto"}>
                 {currentStep === 1 && (
                   <Button
-                    onClick={() => setCurrentStep(2)}
+                    onClick={() => goToStep(2)}
                     disabled={!isStep1Valid()}
                     className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                   >
@@ -1318,7 +1335,7 @@ export default function ApplicationPage() {
 
                 {currentStep === 2 && (
                   <Button
-                    onClick={() => setCurrentStep(3)}
+                    onClick={() => goToStep(3)}
                     disabled={!isStep2Valid()}
                     className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                   >
@@ -1330,7 +1347,7 @@ export default function ApplicationPage() {
 
                 {currentStep === 3 && (
                   <Button
-                    onClick={() => setCurrentStep(4)}
+                    onClick={() => goToStep(4)}
                     disabled={!isStep3Valid()}
                     className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                   >

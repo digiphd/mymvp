@@ -130,7 +130,7 @@ export async function POST(request: NextRequest) {
             <h3 style="color: #0B1426; margin-top: 0;">Your Application Summary:</h3>
             <p><strong>Product:</strong> ${formData.productName}</p>
             <p><strong>Budget & Timeline:</strong> ${formData.budget}</p>
-            <p><strong>Readiness Level:</strong> ${formData.readiness === 'ready' ? 'Ready for collaboration ✅' : 'Needs further discussion'}</p>
+            <p><strong>Readiness Level:</strong> ${formData.readiness.includes('understanding') && (formData.readiness.includes('feedback') || formData.readiness.includes('marketing')) ? 'Ready for collaboration ✅' : 'Needs further discussion'}</p>
             <p><strong>PRD Length:</strong> ${formData.prdOutput.length} characters</p>
           </div>
           
@@ -184,7 +184,7 @@ export async function POST(request: NextRequest) {
             <h3 style="color: #0B1426;">Qualification Assessment</h3>
             <div style="background: ${formData.qualification === 'highly_qualified' ? '#dcfce7' : formData.qualification === 'qualified' ? '#dbeafe' : '#fed7d7'}; padding: 15px; border-radius: 8px;">
               <p><strong>Status:</strong> ${formData.qualification.toUpperCase()}</p>
-              <p><strong>Readiness:</strong> ${formData.readiness === 'ready' ? '✅ Ready for collaboration' : '❌ ' + formData.readiness}</p>
+              <p><strong>Readiness:</strong> ${formData.readiness.includes('understanding') && (formData.readiness.includes('feedback') || formData.readiness.includes('marketing')) ? '✅ Ready for collaboration' : '❌ ' + formData.readiness}</p>
               <p><strong>Budget Qualification:</strong> ${formData.budget.includes('$5-10K') || formData.budget.includes('$10K+') ? '✅ Highly qualified budget' : formData.budget.includes('$2-5K') ? '⚠️ Qualified budget' : '❌ Below minimum'}</p>
               <p><strong>PRD Quality:</strong> ${formData.prdOutput.length >= 500 ? `✅ Comprehensive (${formData.prdOutput.length} characters)` : `❌ Too brief (${formData.prdOutput.length} characters)`}</p>
             </div>

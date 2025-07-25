@@ -140,10 +140,10 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">The Technical Foundation</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              I use Next.js, Express, and Supabase exclusively - not because I can't work with other technologies, but because this stack allows me to deliver production-ready applications in 14 days while ensuring they can scale to millions of users.
+              I use Next.js, Express, and Supabase exclusively - not because I can't work with other technologies, but because this stack allows me to deliver production-ready applications in 14 days while ensuring they're built for growth.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              This isn't about cutting corners. It's about using proven, industry-standard technologies that power companies like Netflix, GitHub, and countless successful startups. <strong>Fast to build, built to scale.</strong>
+              This isn't about cutting corners. It's about using proven, industry-standard technologies that power companies like Netflix, GitHub, and countless successful startups. <strong>Fast to build, built for growth.</strong>
             </p>
           </motion.div>
 

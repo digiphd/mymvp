@@ -7,7 +7,7 @@ export default function StackSection() {
   const stackItems = [
     {
       icon: Code,
-      title: "Next.js 15",
+      title: "Next.js",
       description: "React framework with TypeScript, App Router, and Server Components",
       color: "blue"
     },
@@ -31,7 +31,7 @@ export default function StackSection() {
     "✅ Real-time database with PostgreSQL",
     "✅ Responsive design with Tailwind CSS",
     "✅ API-first architecture for mobile expansion",
-    "✅ Enterprise-grade security and compliance"
+    "✅ Production-ready security and compliance"
   ]
 
   return (
@@ -95,7 +95,7 @@ export default function StackSection() {
               </h3>
               <p className="text-gray-600 mb-8 text-lg">
                 Technology choice paralysis kills speed. We standardized on this proven stack 
-                to deliver enterprise-grade capabilities with startup velocity.
+                to deliver production-ready capabilities with startup velocity.
               </p>
               
               <div className="space-y-3">
@@ -125,7 +125,7 @@ export default function StackSection() {
               >
                 <div className="flex items-center mb-6">
                   <Shield className="w-8 h-8 mr-3" />
-                  <h4 className="text-xl font-bold">Enterprise Ready</h4>
+                  <h4 className="text-xl font-bold">Production Ready</h4>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -145,7 +145,7 @@ export default function StackSection() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span>Scalability</span>
+                    <span>Growth Ready</span>
                     <div className="flex space-x-1">
                       {[1,2,3,4,5].map(i => (
                         <div key={i} className="w-2 h-2 bg-white rounded-full" />
@@ -188,7 +188,7 @@ export default function StackSection() {
         >
           <p className="text-gray-600 text-lg">
             <strong>No framework debates.</strong> No technology experiments. 
-            <br />Just battle-tested tools that ship fast and scale forever.
+            <br />Just battle-tested tools that ship fast and are built for growth.
           </p>
         </motion.div>
       </div>

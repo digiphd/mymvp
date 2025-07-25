@@ -15,7 +15,7 @@ const oldWaySteps = [
   { icon: Code, title: "Frontend Development", desc: "Custom UI components", duration: "6-10 weeks" },
   { icon: TestTube, title: "Testing Phase", desc: "QA and bug fixes", duration: "4-6 weeks" },
   { icon: Rocket, title: "Deployment", desc: "Infrastructure setup", duration: "2-3 weeks" },
-  { icon: Clock, title: "Launch", desc: "Finally ready for users", duration: "8+ months total" }
+  { icon: Clock, title: "Production", desc: "Finally ready for users", duration: "8+ months total" }
 ]
 
 const newWaySteps = [
@@ -23,7 +23,7 @@ const newWaySteps = [
   { icon: Code, title: "Skip Mockups → Build UI", desc: "No static designs! Clickable prototype with dummy data - immediate feedback", duration: "3 days" },
   { icon: Code, title: "Backend Build", desc: "Full-stack integration with authentication, payments, and core features", duration: "7 days" },
   { icon: TestTube, title: "Quality Assurance", desc: "Automated testing", duration: "2 days" },
-  { icon: Rocket, title: "Launch Ready", desc: "Production deployment", duration: "1 day" }
+  { icon: Rocket, title: "Production Ready", desc: "Deployment complete", duration: "1 day" }
 ]
 
 export default function ComparisonSection() {
@@ -114,8 +114,8 @@ export default function ComparisonSection() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute top-4 right-4 z-10">
-              <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+            <div className="absolute top-4 left-4 sm:right-4 sm:left-auto z-10">
+              <span className="bg-blue-600 text-white px-3 py-2 sm:px-4 rounded-full text-xs sm:text-sm font-bold shadow-lg">
                 RECOMMENDED
               </span>
             </div>
@@ -161,7 +161,7 @@ export default function ComparisonSection() {
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="text-xl font-bold text-gray-900">{step.title}</h4>
-                          <span className="text-lg text-blue-600 font-bold bg-blue-100 px-3 py-1 rounded-full">
+                          <span className="text-sm sm:text-lg text-blue-600 font-bold bg-blue-100 px-2 sm:px-3 py-1 rounded-full text-center flex items-center justify-center min-w-0">
                             {step.duration}
                           </span>
                         </div>

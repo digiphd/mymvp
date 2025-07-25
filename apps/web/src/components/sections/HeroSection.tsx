@@ -46,7 +46,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed"
+              className="text-lg md:text-xl text-gray-600 mb-4 leading-relaxed"
             >
               Ready for{' '}
               <motion.span 
@@ -56,6 +56,19 @@ export default function HeroSection() {
                 real customers, real payments, real validation
               </motion.span>
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              className="mb-8"
+            >
+              <div className="inline-flex items-center bg-blue-50 border border-blue-200 rounded-full px-4 py-2">
+                <span className="text-blue-700 font-semibold text-sm">
+                  🎯 Focused on startup phase: 0 → 1 users
+                </span>
+              </div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -129,34 +142,6 @@ export default function HeroSection() {
               </motion.div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-              className="mt-12 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4"
-            >
-              <motion.div 
-                whileHover={{ scale: 1.05, rotate: 1 }}
-                className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 text-center cursor-pointer"
-              >
-                <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-2">14 Days</div>
-                <div className="text-gray-600">From Concept to Launch</div>
-              </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.05, rotate: -1 }}
-                className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 text-center cursor-pointer"
-              >
-                <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-2">Production</div>
-                <div className="text-gray-600">Grade Architecture</div>
-              </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.05, rotate: 1 }}
-                className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 text-center cursor-pointer"
-              >
-                <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-2">AI Native</div>
-                <div className="text-gray-600">Built for the Future</div>
-              </motion.div>
-            </motion.div>
           </motion.div>
 
           {/* Right Column - MVP Mockup */}

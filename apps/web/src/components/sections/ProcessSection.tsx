@@ -56,7 +56,7 @@ const processPhases = [
   },
   {
     days: "Days 13-14",
-    title: "Testing & Launch",
+    title: "Testing & Deployment",
     color: "from-orange-500 to-orange-600", 
     bgColor: "bg-orange-50",
     borderColor: "border-orange-200",
@@ -199,7 +199,7 @@ export default function ProcessSection() {
               Ready to Start Your 14-Day Journey?
             </h3>
             <p className="text-gray-600 mb-6">
-              While your competition spends months planning, you could be launching in two weeks.
+              While your competition spends months planning, you could be live in two weeks.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <button

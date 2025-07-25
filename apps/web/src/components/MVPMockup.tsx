@@ -20,7 +20,7 @@ export default function MVPMockup() {
             <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
             <div className="w-3 h-3 bg-green-400 rounded-full"></div>
           </div>
-          <div className="text-sm text-gray-600 font-medium">myMVP Analytics Dashboard</div>
+          <div className="text-sm text-gray-600 font-medium">Demo Dashboard</div>
           <div className="w-12"></div>
         </div>
 
@@ -48,7 +48,7 @@ export default function MVPMockup() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-blue-600 mb-1">Active Users</p>
+                  <p className="text-sm text-blue-600 mb-1">Users</p>
                   <motion.p 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

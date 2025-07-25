@@ -90,17 +90,26 @@ export default function Header() {
             </Button>
           </motion.div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6 text-gray-600" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-600" />
-            )}
-          </button>
+          {/* Mobile CTA + Menu Button */}
+          <div className="md:hidden flex items-center space-x-2">
+            <Button
+              size="sm"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-3 py-1.5 text-sm"
+              onClick={() => router.push('/apply')}
+            >
+              Apply
+            </Button>
+            <button
+              className="p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-gray-600" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-600" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

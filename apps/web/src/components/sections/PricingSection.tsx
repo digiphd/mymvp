@@ -19,15 +19,31 @@ const mvpFeatures = [
   'Auth + Payments + Up to 3 core features',
   'AI-native architecture from day one',
   'Production deployment and hosting setup',
-  '30 days of iterations based on user feedback',
-  'Full code access and ownership rights',
-  'Built with scalability in mind'
+  '30 days of bug fixes and technical support',
+  'Complete code ownership and documentation',
+  'Built for growth and expansion'
 ]
 
 export default function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-gradient-to-b from-blue-50 to-white">
       <div className="container mx-auto px-6">
+        {/* Beta Program Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <div className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg">
+            <span className="font-semibold text-lg">🚀 Beta Program - First 10 Clients</span>
+          </div>
+          <p className="text-gray-600 mt-3 text-lg">
+            Special pricing while we perfect our process together
+          </p>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

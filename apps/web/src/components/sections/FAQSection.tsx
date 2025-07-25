@@ -15,7 +15,7 @@ const faqCategories = [
       },
       {
         question: "What types of applications can you build?",
-        answer: "Micro-SaaS applications with user authentication, payments, and 3-5 core features. Think task management, analytics dashboards, booking systems, or content platforms. Complex enterprise integrations fall outside our scope."
+        answer: "Micro-SaaS applications with user authentication, payments, and 3-5 core features. Think task management, analytics dashboards, booking systems, or content platforms. Complex custom integrations fall outside our scope."
       },
       {
         question: "Can you sign an NDA?",
@@ -23,7 +23,7 @@ const faqCategories = [
       },
       {
         question: "What technologies do you use?",
-        answer: "Next.js 15 with TypeScript and App Router for frontend. Express.js API with Supabase PostgreSQL database. Vercel for hosting. This stack handles authentication, payments, and real-time features out of the box."
+        answer: "Next.js with TypeScript and App Router for frontend. Express.js API with Supabase PostgreSQL database. Vercel for hosting. This stack handles authentication, payments, and real-time features out of the box."
       },
       {
         question: "Do you work with international clients?",
@@ -32,6 +32,10 @@ const faqCategories = [
       {
         question: "What if I'm not technical—can I still work with you?",
         answer: "Yes. We handle all technical aspects and provide clear documentation. However, you'll need someone technical for ongoing maintenance and future development."
+      },
+      {
+        question: "Are you generalists or specialists?",
+        answer: "We're strategic generalists. While specialists excel in narrow domains, we focus on the startup phase where you need someone who understands the full picture. We handle frontend, backend, databases, payments, and deployment - everything needed to get from 0 to 1 users. For specialized needs like blockchain or banking compliance, we refer you to specialists."
       }
     ]
   },
@@ -81,7 +85,7 @@ const faqCategories = [
       },
       {
         question: "Can you integrate with my existing systems?",
-        answer: "Simple API integrations (Stripe, email services, analytics) are possible. Complex enterprise integrations fall outside our beta scope - we'll refer you to specialists."
+        answer: "Simple API integrations (Stripe, email services, analytics) are possible. Complex custom integrations fall outside our beta scope - we'll refer you to specialists."
       }
     ]
   },

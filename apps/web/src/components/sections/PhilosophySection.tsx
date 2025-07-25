@@ -10,29 +10,22 @@ const principles = [
     icon: Target,
     title: "Less is Exponentially More",
     description: "From 47 features to 3 core features - we perfect the art of ruthless feature elimination.",
-    stat: "3 Core Features",
-    detail: "Auth + Payments + Your Unique Value"
+    stat: "Auth + Payments + Your Unique Value",
+    detail: ""
   },
   {
     icon: Users,
     title: "Real Users > Focus Groups",
-    description: "Market research is the new procrastination. 2 weeks of building trumps 6 months of asking.",
-    stat: "2 Weeks",
-    detail: "Real user data vs months of surveys"
-  },
-  {
-    icon: Rocket,
-    title: "Build → Test → Learn",
-    description: "Your users don't need a dashboard on day one. Perfect is the enemy of shipped.",
-    stat: "Day 1",
-    detail: "Launch with core value, iterate with data"
+    description: "Market research is the new procrastination. Real user data trumps surveys every time.",
+    stat: "2 Weeks of Building > 6 Months of Asking",
+    detail: ""
   },
   {
     icon: TrendingUp,
     title: "We Say NO So You Say YES",
     description: "Ideas are cheap, execution data is expensive. We build focused products, not feature museums.",
-    stat: "85% Faster",
-    detail: "Time to market with focused scope"
+    stat: "85% Faster Time to Market",
+    detail: ""
   }
 ]
 
@@ -68,7 +61,7 @@ export default function PhilosophySection() {
           </motion.div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {principles.map((principle, index) => (
             <motion.div
               key={index}
@@ -83,9 +76,8 @@ export default function PhilosophySection() {
                     <principle.icon className="w-8 h-8 text-blue-600" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{principle.title}</h3>
-                    <div className="text-3xl font-bold text-blue-600 mb-1">{principle.stat}</div>
-                    <div className="text-sm text-gray-500 mb-4">{principle.detail}</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{principle.title}</h3>
+                    <div className="text-lg font-bold text-blue-600 mb-4">{principle.stat}</div>
                   </div>
                 </div>
                 
@@ -109,17 +101,9 @@ export default function PhilosophySection() {
             <div className="text-2xl font-bold text-gray-900 mb-6">
               Auth + Payments + 1-3 Core Features + Relentless Marketing = Success
             </div>
-            <p className="text-gray-600 mb-8 text-lg">
-              We say NO so your MVP can say YES to success. Building is 10% of success - the other 90% is relentless marketing. While your competition is still surveying, you're already scaling.
+            <p className="text-gray-600 text-lg">
+              We say NO so your MVP can say YES to success. While your competition is still surveying, you're already scaling.
             </p>
-            
-            <Button
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-6 shadow-lg"
-              onClick={() => window.location.href = '/apply'}
-            >
-              Experience the Difference
-            </Button>
           </div>
         </motion.div>
       </div>
