@@ -197,6 +197,23 @@ export default function ApplicationPage() {
     localStorage.setItem('mvp-application-form', JSON.stringify(formData))
   }, [formData])
 
+  // Load TidyCal script when calendar should be shown
+  useEffect(() => {
+    if (qualificationResult?.showCalendar) {
+      const script = document.createElement('script')
+      script.src = 'https://asset-tidycal.b-cdn.net/js/embed.js'
+      script.async = true
+      document.body.appendChild(script)
+
+      return () => {
+        // Cleanup script when component unmounts
+        if (document.body.contains(script)) {
+          document.body.removeChild(script)
+        }
+      }
+    }
+  }, [qualificationResult?.showCalendar])
+
   const updateFormData = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
@@ -235,8 +252,21 @@ export default function ApplicationPage() {
 
     const totalScore = budgetScore + readinessScore + prdScore + marketingScore
 
+    // Debug logging to see scores
+    console.log('🎯 Qualification Debug:', {
+      budgetScore,
+      readinessScore, 
+      prdScore,
+      marketingScore,
+      totalScore,
+      budget: formData.budget,
+      readiness: formData.readiness,
+      prdLength: formData.prdOutput.length,
+      marketingChannels: formData.marketingChannels,
+      marketingExperience: formData.marketingExperience
+    })
 
-    if (totalScore >= 9 && budgetScore >= 3 && marketingScore >= 3) {
+    if (totalScore >= 8 && budgetScore >= 3 && marketingScore >= 2) {
       return {
         status: 'highly_qualified',
         message: "Perfect! You're exactly the type of founder we love working with. Book your discovery call below.",
@@ -245,7 +275,8 @@ export default function ApplicationPage() {
     } else if (totalScore >= 7 && budgetScore >= 2 && marketingScore >= 2) {
       return {
         status: 'qualified',
-        message: "Great application! We'll review your details and respond within 24 hours with next steps."
+        message: "Application Received",
+        showCalendar: true
       }
     } else {
       return {
@@ -366,15 +397,12 @@ export default function ApplicationPage() {
                     <p className="text-green-700 mb-6">
                       Let's discuss your project and how we can bring your vision to life in 14 days.
                     </p>
-                    {/* Calendly Embed Placeholder */}
-                    <div className="bg-white border-2 border-dashed border-green-300 rounded-lg p-8 text-center">
-                      <Calendar className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                      <p className="text-green-600 font-semibold mb-2">Calendly Integration</p>
-                      <p className="text-sm text-gray-600">Discovery call booking widget will be embedded here</p>
-                      <Button className="mt-4 bg-green-600 hover:bg-green-700 text-white">
-                        Book Discovery Call
-                        <ExternalLink className="w-4 h-4 ml-2" />
-                      </Button>
+                    {/* TidyCal Embed */}
+                    <div className="bg-white rounded-lg border border-green-200 min-h-[600px]">
+                      <div 
+                        className="tidycal-embed" 
+                        data-path="3ek0qw3/project-fit-call-mymvp"
+                      ></div>
                     </div>
                   </div>
                 )}
