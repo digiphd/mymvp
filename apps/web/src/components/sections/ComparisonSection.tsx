@@ -2,23 +2,25 @@
 
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
-import { Clock, FileText, Users, Code, TestTube, Rocket, ArrowDown, Zap } from 'lucide-react'
+import { Clock, FileText, Users, Code, TestTube, Rocket, ArrowDown, Zap, Palette, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
 
 const oldWaySteps = [
   { icon: FileText, title: "Discovery Phase", desc: "6-8 weeks of meetings", duration: "6-8 weeks" },
   { icon: Users, title: "Requirements Gathering", desc: "Endless stakeholder interviews", duration: "3-4 weeks" },
   { icon: FileText, title: "Technical Specification", desc: "200-page documentation", duration: "2-3 weeks" },
+  { icon: Palette, title: "Design Mockups", desc: "Static designs, endless revisions, committee feedback", duration: "4-6 weeks" },
+  { icon: MessageCircle, title: "Design Approval", desc: "More meetings, umming and ahhing, more revisions", duration: "2-4 weeks" },
   { icon: Code, title: "Backend Development", desc: "Manual coding from scratch", duration: "8-12 weeks" },
   { icon: Code, title: "Frontend Development", desc: "Custom UI components", duration: "6-10 weeks" },
   { icon: TestTube, title: "Testing Phase", desc: "QA and bug fixes", duration: "4-6 weeks" },
   { icon: Rocket, title: "Deployment", desc: "Infrastructure setup", duration: "2-3 weeks" },
-  { icon: Clock, title: "Launch", desc: "Finally ready for users", duration: "6+ months total" }
+  { icon: Clock, title: "Launch", desc: "Finally ready for users", duration: "8+ months total" }
 ]
 
 const newWaySteps = [
   { icon: Zap, title: "AI Discovery", desc: "1-day requirements capture", duration: "1 day" },
-  { icon: Code, title: "Frontend First", desc: "AI-generated UI with rapid feedback cycles - get customer approval", duration: "3 days" },
+  { icon: Code, title: "Skip Mockups → Build UI", desc: "No static designs! Clickable prototype with dummy data - immediate feedback", duration: "3 days" },
   { icon: Code, title: "Backend Build", desc: "Full-stack integration with authentication, payments, and core features", duration: "7 days" },
   { icon: TestTube, title: "Quality Assurance", desc: "Automated testing", duration: "2 days" },
   { icon: Rocket, title: "Launch Ready", desc: "Production deployment", duration: "1 day" }
@@ -53,11 +55,17 @@ export default function ComparisonSection() {
           >
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-red-600 mb-2">Traditional Agencies</h3>
-              <p className="text-gray-500 text-lg">The Old Way - 8 Long Steps</p>
-              <div className="mt-4 inline-flex items-center bg-red-50 px-4 py-2 rounded-full border border-red-200">
-                <Clock className="w-4 h-4 text-red-600 mr-2" />
-                <span className="text-red-600 font-semibold">6+ Months Total</span>
+              <p className="text-gray-500 text-lg">The Old Way - 10 Long Steps</p>
+              <div className="flex flex-col sm:flex-row gap-2 items-center justify-center mt-4">
+                <div className="inline-flex items-center bg-red-50 px-4 py-2 rounded-full border border-red-200">
+                  <Clock className="w-4 h-4 text-red-600 mr-2" />
+                  <span className="text-red-600 font-semibold">8+ Months</span>
+                </div>
+                <div className="inline-flex items-center bg-red-100 px-4 py-2 rounded-full border border-red-300">
+                  <span className="text-red-700 font-bold">$50,000+</span>
+                </div>
               </div>
+              <p className="text-red-600 text-sm mt-2 font-medium">Before any real users or revenue validation</p>
             </div>
             
             <div className="space-y-2 sm:space-y-4">

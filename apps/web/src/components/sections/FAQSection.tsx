@@ -69,7 +69,7 @@ const faqCategories = [
       },
       {
         question: "How do ongoing iterations work toward product-market fit?",
-        answer: "We charge $197/hour for development work based on your user data and feedback. Quick iteration cycles are critical for finding product-market fit - you need to rapidly test, measure, and improve based on real user behavior. We provide upfront estimates and deliver in 3-5 day cycles."
+        answer: "Quick iteration cycles are critical for finding product-market fit - you need to rapidly test, measure, and improve based on real user behavior. We're currently exploring the best pricing model for post-MVP iterations to ensure it aligns with your success. We can discuss specific options and pricing during your discovery call, as we have a few promising approaches we're evaluating."
       },
       {
         question: "Can I take the code to another developer team?",

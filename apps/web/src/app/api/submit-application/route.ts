@@ -6,10 +6,16 @@ interface ApplicationData {
   email: string
   productName: string
   prdOutput: string
+  projectType: string
   budget: string
   readiness: string
-  technicalPrefs: string
-  customRequirements: string
+  technicalPrefs?: string
+  customRequirements?: string
+  first10Users?: string
+  first100Users?: string
+  marketingChannels?: string
+  marketingBudget?: string
+  marketingExperience?: string
   qualification: 'highly_qualified' | 'qualified' | 'unqualified'
   submittedAt: string
 }
@@ -20,12 +26,12 @@ export async function POST(request: NextRequest) {
 
     // Create transporter (you'll need to configure this with your email service)
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      host: 'heracles.mxrouting.net',
       port: 587,
       secure: false,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: 'roger@mymvp.io',
+        pass: process.env.SMTP_PASSWORD,
       },
     })
 
@@ -57,16 +63,21 @@ export async function POST(request: NextRequest) {
 
     // Send acknowledgment email to applicant
     const acknowledgmentEmail = {
-      from: process.env.FROM_EMAIL || 'noreply@mymvp.io',
+      from: 'hello@mymvp.io',
       to: formData.email,
       subject: qualificationInfo.subject,
       html: `
         <!DOCTYPE html>
         <html>
         <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <div style="background: linear-gradient(135deg, #0B1426 0%, #2563eb 100%); padding: 30px; text-align: center; border-radius: 10px; margin-bottom: 20px;">
-            <h1 style="color: white; margin: 0; font-size: 28px;">MyMVP</h1>
-            <p style="color: #60a5fa; margin: 10px 0 0 0; font-size: 16px;">AI-Powered MVP Development</p>
+          <div style="background: white; padding: 30px; text-align: center; border-radius: 10px; margin-bottom: 20px; border: 2px solid #e5e7eb;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+              <img src="https://mymvp.io/logo.png" alt="myMVP Logo" style="width: 32px; height: 32px; margin-right: 12px;" />
+              <h1 style="color: #000000; margin: 0; font-size: 28px; font-weight: bold;">
+                my<span style="color: #2563eb;">MVP</span>
+              </h1>
+            </div>
+            <p style="color: #6b7280; margin: 0; font-size: 16px;">AI-Powered MVP Development</p>
           </div>
           
           <h2 style="color: #0B1426;">${qualificationInfo.subject}</h2>
@@ -109,7 +120,7 @@ export async function POST(request: NextRequest) {
           
           <p style="margin-top: 30px;">
             Best regards,<br>
-            <strong>The MyMVP Team</strong><br>
+            <strong>The myMVP Team</strong><br>
             <em>Transforming visions into reality, one MVP at a time</em>
           </p>
           
@@ -123,16 +134,22 @@ export async function POST(request: NextRequest) {
 
     // Send notification email to admin
     const adminEmail = {
-      from: process.env.FROM_EMAIL || 'noreply@mymvp.io',
-      to: process.env.ADMIN_EMAIL || 'admin@mymvp.io',
+      from: 'hello@mymvp.io',
+      to: 'roger@mymvp.io',
       subject: `${qualificationInfo.priority} New Application - ${formData.name} (${formData.productName})`,
       html: `
         <!DOCTYPE html>
         <html>
         <body style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
-          <div style="background: #0B1426; color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-            <h1 style="margin: 0; color: #60a5fa;">New MVP Application - ${qualificationInfo.priority}</h1>
-            <p style="margin: 10px 0 0 0;">Qualification Level: <strong>${formData.qualification.toUpperCase()}</strong></p>
+          <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 2px solid #e5e7eb;">
+            <div style="display: inline-flex; align-items: center; margin-bottom: 15px;">
+              <img src="https://mymvp.io/logo.png" alt="myMVP Logo" style="width: 32px; height: 32px; margin-right: 12px;" />
+              <h1 style="color: #000000; margin: 0; font-size: 24px; font-weight: bold;">
+                my<span style="color: #2563eb;">MVP</span>
+              </h1>
+            </div>
+            <h2 style="margin: 0; color: #dc2626; font-size: 20px;">New MVP Application - ${qualificationInfo.priority}</h2>
+            <p style="margin: 10px 0 0 0; color: #374151;">Qualification Level: <strong>${formData.qualification.toUpperCase()}</strong></p>
           </div>
           
           <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -140,6 +157,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${formData.name}</p>
             <p><strong>Email:</strong> ${formData.email}</p>
             <p><strong>Product/Company:</strong> ${formData.productName}</p>
+            <p><strong>Project Type:</strong> ${formData.projectType}</p>
             <p><strong>Budget & Timeline:</strong> ${formData.budget}</p>
             <p><strong>Submitted:</strong> ${new Date(formData.submittedAt).toLocaleString()}</p>
           </div>
@@ -166,6 +184,17 @@ export async function POST(request: NextRequest) {
             <h3 style="color: #0B1426;">Technical Requirements</h3>
             <p><strong>Preferences:</strong> ${formData.technicalPrefs}</p>
             ${formData.customRequirements ? `<p><strong>Custom Requirements:</strong> ${formData.customRequirements}</p>` : ''}
+          </div>
+          ` : ''}
+          
+          ${(formData.first10Users || formData.first100Users || formData.marketingChannels) ? `
+          <div style="margin-bottom: 20px;">
+            <h3 style="color: #0B1426;">Marketing Strategy</h3>
+            ${formData.first10Users ? `<p><strong>First 10 Users:</strong> ${formData.first10Users}</p>` : ''}
+            ${formData.first100Users ? `<p><strong>First 100 Users:</strong> ${formData.first100Users}</p>` : ''}
+            ${formData.marketingChannels ? `<p><strong>Marketing Channels:</strong> ${formData.marketingChannels}</p>` : ''}
+            ${formData.marketingBudget ? `<p><strong>Marketing Budget:</strong> ${formData.marketingBudget}</p>` : ''}
+            ${formData.marketingExperience ? `<p><strong>Marketing Experience:</strong> ${formData.marketingExperience}</p>` : ''}
           </div>
           ` : ''}
           

@@ -88,8 +88,9 @@ const authenticateApiKey = (req: Request, res: Response, next: NextFunction) => 
   next()
 }
 
-// Request validation schema
+// Request validation schema - Updated to match current form structure
 const applicationSchema = Joi.object({
+  // Contact Information
   name: Joi.string().min(2).max(100).required().messages({
     'string.min': 'Name must be at least 2 characters long',
     'string.max': 'Name cannot exceed 100 characters',
@@ -99,48 +100,100 @@ const applicationSchema = Joi.object({
     'string.email': 'Please provide a valid email address',
     'any.required': 'Email is required'
   }),
-  company: Joi.string().min(2).max(100).required().messages({
-    'string.min': 'Company name must be at least 2 characters long',
-    'string.max': 'Company name cannot exceed 100 characters',
-    'any.required': 'Company name is required'
+  productName: Joi.string().min(2).max(100).required().messages({
+    'string.min': 'Product name must be at least 2 characters long',
+    'string.max': 'Product name cannot exceed 100 characters',
+    'any.required': 'Product name is required'
   }),
-  prd_content: Joi.string().min(500).max(10000).required().messages({
+  
+  // PRD Output
+  prdOutput: Joi.string().min(500).max(10000).required().messages({
     'string.min': 'PRD content must be at least 500 characters long',
     'string.max': 'PRD content cannot exceed 10,000 characters',
     'any.required': 'PRD content is required'
   }),
-  budget_timeline: Joi.string().valid(
-    'under_2k',
-    '2k_1month',
-    '5k_2weeks',
-    '10k_flexible',
-    'exploring'
-  ).required().messages({
-    'any.only': 'Please select a valid budget and timeline option',
-    'any.required': 'Budget and timeline selection is required'
+  
+  // Project Type
+  projectType: Joi.string().valid('proof-of-concept', 'full-mvp').required().messages({
+    'any.only': 'Please select either proof-of-concept or full-mvp',
+    'any.required': 'Project type selection is required'
   }),
-  project_readiness: Joi.string().valid(
-    'ready_collaboration',
-    'hands_off',
-    'marketing_too'
+  
+  // Budget and Timeline
+  budget: Joi.string().valid(
+    'Under $2K, exploring options',
+    '$2-5K, need it within 1 month',
+    '$5-10K, need it within 2 weeks',
+    '$10K+, flexible timeline'
   ).required().messages({
-    'any.only': 'Please select a valid project readiness option',
+    'any.only': 'Please select a valid budget option',
+    'any.required': 'Budget selection is required'
+  }),
+  
+  // Project Readiness (array of selected options)
+  readiness: Joi.string().required().messages({
     'any.required': 'Project readiness selection is required'
   }),
-  technical_preferences: Joi.string().max(1000).optional().allow('').messages({
+  
+  // Technical Preferences
+  technicalPrefs: Joi.string().max(1000).optional().allow('').messages({
     'string.max': 'Technical preferences cannot exceed 1000 characters'
+  }),
+  customRequirements: Joi.string().max(1000).optional().allow('').messages({
+    'string.max': 'Custom requirements cannot exceed 1000 characters'
+  }),
+  
+  // Marketing Strategy
+  first10Users: Joi.string().max(1000).optional().allow('').messages({
+    'string.max': 'First 10 users plan cannot exceed 1000 characters'
+  }),
+  first100Users: Joi.string().max(1000).optional().allow('').messages({
+    'string.max': 'First 100 users plan cannot exceed 1000 characters'
+  }),
+  marketingChannels: Joi.string().max(1000).optional().allow('').messages({
+    'string.max': 'Marketing channels cannot exceed 1000 characters'
+  }),
+  marketingBudget: Joi.string().max(500).optional().allow('').messages({
+    'string.max': 'Marketing budget cannot exceed 500 characters'
+  }),
+  marketingExperience: Joi.string().valid(
+    'no-experience',
+    'some-experience', 
+    'experienced'
+  ).optional().allow('').messages({
+    'any.only': 'Please select a valid marketing experience level'
   })
 })
 
-// Qualification logic
+// Qualification logic - Updated to match current form structure
 interface ApplicationData {
+  // Contact Information
   name: string
   email: string
-  company: string
-  prd_content: string
-  budget_timeline: string
-  project_readiness: string
-  technical_preferences?: string
+  productName: string
+  
+  // PRD Output
+  prdOutput: string
+  
+  // Project Type
+  projectType: string
+  
+  // Budget and Timeline
+  budget: string
+  
+  // Project Readiness
+  readiness: string
+  
+  // Technical Preferences
+  technicalPrefs?: string
+  customRequirements?: string
+  
+  // Marketing Strategy
+  first10Users?: string
+  first100Users?: string
+  marketingChannels?: string
+  marketingBudget?: string
+  marketingExperience?: string
 }
 
 interface QualificationResult {
@@ -151,40 +204,56 @@ interface QualificationResult {
 }
 
 function qualifyLead(formData: ApplicationData): QualificationResult {
-  const { budget_timeline, project_readiness, prd_content } = formData
+  // Use the same qualification logic as the frontend
+  const budgetScore = formData.budget === '$10K+, flexible timeline' ? 3 :
+                     formData.budget === '$5-10K, need it within 2 weeks' ? 3 :
+                     formData.budget === '$2-5K, need it within 1 month' ? 2 : 1
   
-  // Unqualified criteria
-  if (
-    budget_timeline === 'under_2k' || 
-    budget_timeline === 'exploring' ||
-    project_readiness !== 'ready_collaboration' ||
-    prd_content.length < 500
-  ) {
-    return {
-      qualification: 'unqualified',
-      next_action: 'rejection',
-      message: 'Thanks for your interest. Based on your responses, we may not be the right fit at this time. We\'ll notify you if we expand our services to match your needs.'
-    }
-  }
+  const hasUnderstanding = formData.readiness.includes('understanding')
+  const hasFeedbackReadiness = formData.readiness.includes('feedback')
+  const readinessScore = hasUnderstanding && hasFeedbackReadiness ? 3 : hasUnderstanding ? 2 : 1
   
-  // Highly qualified criteria
-  if (
-    (budget_timeline === '5k_2weeks' || budget_timeline === '10k_flexible') &&
-    project_readiness === 'ready_collaboration'
-  ) {
+  const prdScore = formData.prdOutput.length >= 500 ? 2 : 1
+  
+  // Marketing readiness scoring
+  const hasFirst10Plan = (formData.first10Users?.trim().length || 0) > 10
+  const hasFirst100Plan = (formData.first100Users?.trim().length || 0) > 10
+  const hasMarketingChannels = (formData.marketingChannels?.split(',').filter(v => v !== '').length || 0) >= 2
+  const isMarketingReady = formData.marketingExperience === 'experienced' || formData.marketingExperience === 'some-experience'
+  
+  const marketingScore = (hasFirst10Plan ? 1 : 0) + (hasFirst100Plan ? 1 : 0) + (hasMarketingChannels ? 1 : 0) + (isMarketingReady ? 1 : 0)
+  const totalScore = budgetScore + readinessScore + prdScore + marketingScore
+  
+  // Debug logging
+  console.log('=== API QUALIFICATION DEBUG ===')
+  console.log('Budget:', formData.budget, '→ Score:', budgetScore)
+  console.log('Readiness:', formData.readiness, '→ hasUnderstanding:', hasUnderstanding, 'hasFeedback:', hasFeedbackReadiness, '→ Score:', readinessScore)
+  console.log('PRD length:', formData.prdOutput.length, '→ Score:', prdScore)
+  console.log('Marketing Score:', marketingScore)
+  console.log('TOTAL SCORE:', totalScore, '/ Requirements: ≥9 (highly), ≥7 (qualified)')
+  
+  if (totalScore >= 9 && budgetScore >= 3 && marketingScore >= 3) {
+    console.log('→ HIGHLY QUALIFIED')
     return {
       qualification: 'highly_qualified',
       next_action: 'calendar_booking',
-      message: 'Perfect! You\'re exactly the type of founder we love working with. Book your discovery call below.',
+      message: "Perfect! You're exactly the type of founder we love working with. Book your discovery call below.",
       calendar_url: process.env.CALENDLY_URL || 'https://calendly.com/mymvp/discovery-call'
     }
-  }
-  
-  // Default to qualified
-  return {
-    qualification: 'qualified',
-    next_action: 'manual_review',
-    message: 'Great application! We\'ll review your PRD and respond within 24 hours with next steps.'
+  } else if (totalScore >= 7 && budgetScore >= 2 && marketingScore >= 2) {
+    console.log('→ QUALIFIED')
+    return {
+      qualification: 'qualified',
+      next_action: 'manual_review',
+      message: "Great application! We'll review your details and respond within 24 hours with next steps."
+    }
+  } else {
+    console.log('→ UNQUALIFIED')
+    return {
+      qualification: 'unqualified',
+      next_action: 'rejection',
+      message: "Thanks for your interest. Based on your responses, we may not be the right fit at this time. We'll notify you if we expand our services to match your needs."
+    }
   }
 }
 
@@ -225,11 +294,18 @@ async function saveApplication(applicationData: ApplicationData, qualification: 
       id: uuidv4(),
       name: applicationData.name,
       email: applicationData.email,
-      company: applicationData.company,
-      prd_content: applicationData.prd_content,
-      budget_timeline: applicationData.budget_timeline,
-      project_readiness: applicationData.project_readiness,
-      technical_preferences: applicationData.technical_preferences || null,
+      product_name: applicationData.productName,
+      prd_output: applicationData.prdOutput,
+      project_type: applicationData.projectType,
+      budget: applicationData.budget,
+      readiness: applicationData.readiness,
+      technical_prefs: applicationData.technicalPrefs || null,
+      custom_requirements: applicationData.customRequirements || null,
+      first_10_users: applicationData.first10Users || null,
+      first_100_users: applicationData.first100Users || null,
+      marketing_channels: applicationData.marketingChannels || null,
+      marketing_budget: applicationData.marketingBudget || null,
+      marketing_experience: applicationData.marketingExperience || null,
       qualification_level: qualification.qualification,
       created_at: new Date().toISOString()
     }
@@ -296,24 +372,31 @@ app.post('/api/applications', authenticateApiKey, async (req: Request, res: Resp
     // Send applicant confirmation email
     const applicantEmailVariables = {
       name: applicationData.name,
-      company: applicationData.company,
+      product_name: applicationData.productName,
+      project_type: applicationData.projectType,
       qualification_level: qualification.qualification,
       message: qualification.message,
       calendar_url: qualification.calendar_url || '',
-      prd_length: applicationData.prd_content.length,
-      budget_timeline: applicationData.budget_timeline
+      prd_length: applicationData.prdOutput.length,
+      budget: applicationData.budget
     }
 
     // Send internal notification email
     const adminEmailVariables = {
       name: applicationData.name,
       email: applicationData.email,
-      company: applicationData.company,
+      product_name: applicationData.productName,
+      project_type: applicationData.projectType,
       qualification_level: qualification.qualification,
-      prd_content: applicationData.prd_content.substring(0, 2000) + (applicationData.prd_content.length > 2000 ? '...' : ''),
-      budget_timeline: applicationData.budget_timeline,
-      project_readiness: applicationData.project_readiness,
-      technical_preferences: applicationData.technical_preferences || 'None specified',
+      prd_output: applicationData.prdOutput.substring(0, 2000) + (applicationData.prdOutput.length > 2000 ? '...' : ''),
+      budget: applicationData.budget,
+      readiness: applicationData.readiness,
+      technical_prefs: applicationData.technicalPrefs || 'None specified',
+      custom_requirements: applicationData.customRequirements || 'None specified',
+      first_10_users: applicationData.first10Users || 'Not provided',
+      first_100_users: applicationData.first100Users || 'Not provided',
+      marketing_channels: applicationData.marketingChannels || 'Not provided',
+      marketing_experience: applicationData.marketingExperience || 'Not specified',
       next_action: qualification.next_action,
       submitted_at: new Date().toLocaleString()
     }
@@ -346,7 +429,8 @@ app.post('/api/applications', authenticateApiKey, async (req: Request, res: Resp
     console.log('✅ Application processed successfully:', {
       name: applicationData.name,
       email: applicationData.email,
-      company: applicationData.company,
+      product_name: applicationData.productName,
+      project_type: applicationData.projectType,
       qualification: qualification.qualification,
       timestamp: new Date().toISOString()
     })

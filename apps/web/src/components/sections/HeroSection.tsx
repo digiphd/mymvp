@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 export default function HeroSection() {
   const router = useRouter()
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 pt-16 pb-16">
       <div className="container mx-auto px-6">
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
@@ -116,7 +116,7 @@ export default function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg transition-all duration-200"
+                  className="bg-white border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-6 text-lg transition-all duration-200 shadow-lg"
                   onClick={() => {
                     const element = document.querySelector('#how-it-works')
                     if (element) {
@@ -133,7 +133,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4"
+              className="mt-12 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4"
             >
               <motion.div 
                 whileHover={{ scale: 1.05, rotate: 1 }}
