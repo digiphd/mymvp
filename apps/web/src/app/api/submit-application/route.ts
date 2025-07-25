@@ -25,6 +25,12 @@ export async function POST(request: NextRequest) {
     console.log('📧 Starting application submission...')
     const formData: ApplicationData = await request.json()
     console.log('📝 Form data received:', { name: formData.name, email: formData.email, productName: formData.productName })
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      throw new Error(`Invalid email address: ${formData.email}`)
+    }
 
     // Create transporter (you'll need to configure this with your email service)
     console.log('🔧 Creating SMTP transporter...')
@@ -69,6 +75,11 @@ export async function POST(request: NextRequest) {
     const qualificationInfo = getQualificationMessage(formData.qualification)
 
     // Send acknowledgment email to applicant
+    console.log('📬 Email addresses:')
+    console.log('  - From:', 'hello@mymvp.io')
+    console.log('  - To (user):', formData.email)
+    console.log('  - To (admin):', 'roger@mymvp.io')
+    
     const acknowledgmentEmail = {
       from: 'hello@mymvp.io',
       to: formData.email,

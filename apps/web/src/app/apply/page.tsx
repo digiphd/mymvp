@@ -218,35 +218,19 @@ export default function ApplicationPage() {
 
     const totalScore = budgetScore + readinessScore + prdScore + marketingScore
 
-    // Debug logging
-    console.log('=== QUALIFICATION DEBUG ===')
-    console.log('Budget:', formData.budget, '→ Score:', budgetScore)
-    console.log('Readiness:', formData.readiness, '→ hasUnderstanding:', hasUnderstanding, 'hasFeedback:', hasFeedbackReadiness, '→ Score:', readinessScore)
-    console.log('PRD length:', formData.prdOutput.length, '→ Score:', prdScore)
-    console.log('Marketing:')
-    console.log('  - First10 length:', formData.first10Users.trim().length, '(need >10) →', hasFirst10Plan ? 1 : 0)
-    console.log('  - First100 length:', formData.first100Users.trim().length, '(need >10) →', hasFirst100Plan ? 1 : 0)
-    console.log('  - Channels selected:', formData.marketingChannels.split(',').filter(v => v !== '').length, '→', hasMarketingChannels ? 1 : 0)
-    console.log('  - Experience:', formData.marketingExperience, '→', isMarketingReady ? 1 : 0)
-    console.log('  - Marketing Score:', marketingScore)
-    console.log('TOTAL SCORE:', totalScore, '/ Requirements: ≥9 (highly), ≥7 (qualified)')
-    console.log('Budget ≥3?', budgetScore >= 3, '| Marketing ≥3?', marketingScore >= 3, '| Marketing ≥2?', marketingScore >= 2)
 
     if (totalScore >= 9 && budgetScore >= 3 && marketingScore >= 3) {
-      console.log('→ HIGHLY QUALIFIED')
       return {
         status: 'highly_qualified',
         message: "Perfect! You're exactly the type of founder we love working with. Book your discovery call below.",
         showCalendar: true
       }
     } else if (totalScore >= 7 && budgetScore >= 2 && marketingScore >= 2) {
-      console.log('→ QUALIFIED')
       return {
         status: 'qualified',
         message: "Great application! We'll review your details and respond within 24 hours with next steps."
       }
     } else {
-      console.log('→ UNQUALIFIED')
       return {
         status: 'unqualified',
         message: "Thanks for your interest. Based on your responses, we may not be the right fit at this time. We'll notify you if we expand our services to match your needs."
