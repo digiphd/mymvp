@@ -252,19 +252,6 @@ export default function ApplicationPage() {
 
     const totalScore = budgetScore + readinessScore + prdScore + marketingScore
 
-    // Debug logging to see scores
-    console.log('🎯 Qualification Debug:', {
-      budgetScore,
-      readinessScore, 
-      prdScore,
-      marketingScore,
-      totalScore,
-      budget: formData.budget,
-      readiness: formData.readiness,
-      prdLength: formData.prdOutput.length,
-      marketingChannels: formData.marketingChannels,
-      marketingExperience: formData.marketingExperience
-    })
 
     if (totalScore >= 8 && budgetScore >= 3 && marketingScore >= 2) {
       return {
