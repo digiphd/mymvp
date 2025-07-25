@@ -22,9 +22,14 @@ interface ApplicationData {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('📧 Starting application submission...')
     const formData: ApplicationData = await request.json()
+    console.log('📝 Form data received:', { name: formData.name, email: formData.email, productName: formData.productName })
 
     // Create transporter (you'll need to configure this with your email service)
+    console.log('🔧 Creating SMTP transporter...')
+    console.log('🔑 SMTP_PASSWORD exists:', !!process.env.SMTP_PASSWORD)
+    
     const transporter = nodemailer.createTransport({
       host: 'heracles.mxrouting.net',
       port: 587,
@@ -34,6 +39,8 @@ export async function POST(request: NextRequest) {
         pass: process.env.SMTP_PASSWORD,
       },
     })
+    
+    console.log('✅ Transporter created successfully')
 
     // Determine email content based on qualification
     const getQualificationMessage = (qualification: string) => {
@@ -217,8 +224,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Send both emails
+    console.log('📤 Sending acknowledgment email...')
     await transporter.sendMail(acknowledgmentEmail)
+    console.log('✅ Acknowledgment email sent')
+    
+    console.log('📤 Sending admin notification email...')
     await transporter.sendMail(adminEmail)
+    console.log('✅ Admin email sent')
 
     // Log application for analytics (you might want to store this in a database)
     console.log('New application submitted:', {
@@ -235,10 +247,16 @@ export async function POST(request: NextRequest) {
       qualification: formData.qualification
     })
   } catch (error) {
-    console.error('Error processing application:', error)
+    console.error('❌ Error processing application:', error)
+    console.error('❌ Error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : 'No stack trace',
+      name: error instanceof Error ? error.name : 'Unknown error type'
+    })
     return NextResponse.json({ 
       success: false, 
-      message: 'Failed to submit application' 
+      message: 'Failed to submit application',
+      error: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : 'Unknown error') : undefined
     }, { status: 500 })
   }
 }
