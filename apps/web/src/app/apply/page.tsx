@@ -515,34 +515,34 @@ export default function ApplicationPage() {
 
           {/* Progress Bar */}
           <div className="mb-12">
-            <div className="flex items-center justify-center mb-4">
-              <div className="flex items-center">
+            <div className="flex items-center justify-center mb-4 px-4">
+              <div className="flex items-center max-w-sm sm:max-w-none">
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-semibold text-sm sm:text-base ${
                     currentStep >= 1 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'
                   }`}
                 >
-                  {currentStep > 1 ? <CheckCircle className="w-6 h-6" /> : '1'}
+                  {currentStep > 1 ? <CheckCircle className="w-4 h-4 sm:w-6 sm:h-6" /> : '1'}
                 </div>
-                <div className={`w-12 h-1 mx-2 ${currentStep > 1 ? 'bg-blue-600' : 'bg-gray-300'}`} />
+                <div className={`w-6 sm:w-12 h-1 mx-1 sm:mx-2 ${currentStep > 1 ? 'bg-blue-600' : 'bg-gray-300'}`} />
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-semibold text-sm sm:text-base ${
                     currentStep >= 2 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'
                   }`}
                 >
-                  {currentStep > 2 ? <CheckCircle className="w-6 h-6" /> : '2'}
+                  {currentStep > 2 ? <CheckCircle className="w-4 h-4 sm:w-6 sm:h-6" /> : '2'}
                 </div>
-                <div className={`w-12 h-1 mx-2 ${currentStep > 2 ? 'bg-blue-600' : 'bg-gray-300'}`} />
+                <div className={`w-6 sm:w-12 h-1 mx-1 sm:mx-2 ${currentStep > 2 ? 'bg-blue-600' : 'bg-gray-300'}`} />
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-semibold text-sm sm:text-base ${
                     currentStep >= 3 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'
                   }`}
                 >
-                  {currentStep > 3 ? <CheckCircle className="w-6 h-6" /> : '3'}
+                  {currentStep > 3 ? <CheckCircle className="w-4 h-4 sm:w-6 sm:h-6" /> : '3'}
                 </div>
-                <div className={`w-12 h-1 mx-2 ${currentStep > 3 ? 'bg-blue-600' : 'bg-gray-300'}`} />
+                <div className={`w-6 sm:w-12 h-1 mx-1 sm:mx-2 ${currentStep > 3 ? 'bg-blue-600' : 'bg-gray-300'}`} />
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-semibold text-sm sm:text-base ${
                     currentStep >= 4 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'
                   }`}
                 >
@@ -550,19 +550,21 @@ export default function ApplicationPage() {
                 </div>
               </div>
             </div>
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-gray-900">
-                Step {currentStep} of 4: {
-                  currentStep === 1 ? 'Create Your PRD with AI' :
-                  currentStep === 2 ? (
-                    <>
-                      Contact & PRD - my<span className="text-blue-600">MVP</span>
-                    </>
-                  ) :
-                  currentStep === 3 ? 'Project Budget & Readiness' :
-                  'Marketing Strategy & User Acquisition'
-                }
-                <span className="text-sm font-normal text-gray-500 ml-2">
+            <div className="text-center px-4">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
+                <span className="block sm:inline">Step {currentStep} of 4:</span>{' '}
+                <span className="block sm:inline">
+                  {currentStep === 1 ? 'Create Your PRD with AI' :
+                   currentStep === 2 ? (
+                     <>
+                       Contact & PRD - my<span className="text-blue-600">MVP</span>
+                     </>
+                   ) :
+                   currentStep === 3 ? 'Project Budget & Readiness' :
+                   'Marketing Strategy & User Acquisition'
+                  }
+                </span>
+                <span className="text-sm font-normal text-gray-500 block sm:inline sm:ml-2">
                   ({
                     currentStep === 1 ? '5-7 min' :
                     currentStep === 2 ? '1-2 min' :
@@ -571,7 +573,7 @@ export default function ApplicationPage() {
                   })
                 </span>
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base mt-2">
                 {currentStep === 1 ? 'Use our AI-powered prompt to generate comprehensive requirements' :
                  currentStep === 2 ? 'Share your details and paste your completed PRD' :
                  currentStep === 3 ? 'Tell us about your budget and project readiness' :
@@ -582,7 +584,7 @@ export default function ApplicationPage() {
           </div>
 
           {/* Form Steps */}
-          <Card className="p-8 bg-white border border-gray-200 shadow-lg">
+          <Card className="p-4 sm:p-8 bg-white border border-gray-200 shadow-lg">
             <AnimatePresence mode="wait">
               {currentStep === 1 && (
                 <motion.div
@@ -825,7 +827,7 @@ export default function ApplicationPage() {
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <label className="cursor-pointer">
-                          <div className={`border-2 rounded-xl p-6 transition-all ${
+                          <div className={`border-2 rounded-xl p-4 sm:p-6 transition-all ${
                             formData.projectType === 'proof-of-concept' 
                               ? 'border-blue-500 bg-blue-50' 
                               : 'border-gray-200 hover:border-gray-300'
@@ -856,7 +858,7 @@ export default function ApplicationPage() {
                         </label>
                         
                         <label className="cursor-pointer">
-                          <div className={`border-2 rounded-xl p-6 transition-all ${
+                          <div className={`border-2 rounded-xl p-4 sm:p-6 transition-all ${
                             formData.projectType === 'full-mvp' 
                               ? 'border-green-500 bg-green-50' 
                               : 'border-gray-200 hover:border-gray-300'
@@ -1287,13 +1289,13 @@ export default function ApplicationPage() {
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between mt-8">
+            <div className="flex flex-col sm:flex-row justify-between gap-4 mt-8">
               {/* Back Button */}
               {currentStep > 1 && (
                 <Button
                   variant="outline"
                   onClick={() => setCurrentStep(currentStep - 1)}
-                  className="bg-white border-blue-600 text-blue-600 hover:bg-blue-50"
+                  className="bg-white border-blue-600 text-blue-600 hover:bg-blue-50 w-full sm:w-auto"
                 >
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back
@@ -1301,14 +1303,15 @@ export default function ApplicationPage() {
               )}
               
               {/* Forward/Submit Button */}
-              <div className={currentStep === 1 ? "w-full flex justify-end" : "ml-auto"}>
+              <div className={currentStep === 1 ? "w-full flex justify-end" : "w-full sm:w-auto sm:ml-auto"}>
                 {currentStep === 1 && (
                   <Button
                     onClick={() => setCurrentStep(2)}
                     disabled={!isStep1Valid()}
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                   >
-                    Continue to Contact & PRD
+                    <span className="hidden sm:inline">Continue to Contact & PRD</span>
+                    <span className="sm:hidden">Continue</span>
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 )}
@@ -1317,9 +1320,10 @@ export default function ApplicationPage() {
                   <Button
                     onClick={() => setCurrentStep(3)}
                     disabled={!isStep2Valid()}
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                   >
-                    Continue to Budget & Readiness
+                    <span className="hidden sm:inline">Continue to Budget & Readiness</span>
+                    <span className="sm:hidden">Continue</span>
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 )}
@@ -1328,9 +1332,10 @@ export default function ApplicationPage() {
                   <Button
                     onClick={() => setCurrentStep(4)}
                     disabled={!isStep3Valid()}
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                   >
-                    Continue to Marketing Strategy
+                    <span className="hidden sm:inline">Continue to Marketing Strategy</span>
+                    <span className="sm:hidden">Continue</span>
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 )}
@@ -1339,7 +1344,7 @@ export default function ApplicationPage() {
                   <Button
                     onClick={handleSubmit}
                     disabled={!isStep4Valid() || isSubmitting}
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                   >
                     {isSubmitting ? 'Submitting...' : 'Submit Application'}
                     <CheckCircle className="w-4 h-4 ml-2" />
