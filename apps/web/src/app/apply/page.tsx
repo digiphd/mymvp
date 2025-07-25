@@ -172,7 +172,7 @@ export default function ApplicationPage() {
     prdOutput: '',
     budget: '',
     readiness: '',
-    technicalPrefs: '',
+    technicalPrefs: 'recommended-stack',
     customRequirements: '',
     first10Users: '',
     first100Users: '',
