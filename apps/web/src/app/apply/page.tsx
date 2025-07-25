@@ -942,7 +942,7 @@ export default function ApplicationPage() {
                         What's your budget for a Full MVP? *
                       </Label>
                       <p className="text-sm text-gray-600 mb-2">
-                        This helps us understand your investment appetite. If you selected Proof of Concept above, you can always upgrade later.
+                        This helps us understand your investment appetite. If you selected Proof of Concept in the last step, you can always upgrade later.
                       </p>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
