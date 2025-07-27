@@ -1,15 +1,29 @@
-# MyMVP API
+# MyMVP Dashboard API
 
-Express API for handling MyMVP application form submissions with Loops.so email integration and Supabase database storage.
+A comprehensive Express.js API for the MyMVP dashboard system supporting customers, developers, and administrators with full project management capabilities.
 
 ## Features
 
-- ✅ **Secure API**: API key authentication, rate limiting, CORS protection
-- ✅ **Form Validation**: Joi schema validation with detailed error messages
+### Core Dashboard Functionality
+- ✅ **Multi-role Authentication**: JWT-based auth for customers, developers, and admins
+- ✅ **Project Management**: Full lifecycle project tracking with developer assignment
+- ✅ **Task Management**: Developer workflow with time tracking and status updates
+- ✅ **Real-time Messaging**: Multi-party communication between all stakeholders
+- ✅ **File Management**: Upload/download with role-based access control
+- ✅ **Dashboard Analytics**: Role-specific insights and metrics
+
+### Security & Performance
+- ✅ **Role-based Access Control**: Granular permissions for each user type
+- ✅ **JWT Authentication**: Secure token-based authentication
+- ✅ **Database Security**: Row Level Security (RLS) policies
+- ✅ **Input Validation**: Comprehensive Joi schema validation
+- ✅ **Rate Limiting**: Protection against abuse
+- ✅ **CORS Protection**: Configurable cross-origin policies
+
+### Legacy Support
+- ✅ **Application Processing**: Maintains backward compatibility
 - ✅ **Lead Qualification**: Automated scoring and routing logic
 - ✅ **Email Integration**: Loops.so transactional emails
-- ✅ **Database Storage**: Supabase PostgreSQL with full schema
-- ✅ **Error Handling**: Comprehensive error logging and user-friendly responses
 - ✅ **Vercel Ready**: Optimized for serverless deployment
 
 ## Quick Start
@@ -22,25 +36,47 @@ npm install
 
 ### 2. Set Up Environment Variables
 
-Copy `.env.example` to `.env` and fill in your values:
+Copy `.env.example` to `.env` and configure:
 
 ```bash
 cp .env.example .env
 ```
 
-Required environment variables:
-- `API_SECRET_KEY`: Your secret API key for authentication
-- `LOOPS_API_KEY`: Your Loops.so API key
+**Required variables:**
+- `JWT_SECRET`: Secret key for JWT tokens (min 32 characters)
 - `SUPABASE_URL`: Your Supabase project URL
-- `SUPABASE_ANON_KEY`: Your Supabase anonymous key
-- `CORS_ORIGIN`: Your frontend domain (e.g., https://mymvp.io)
+- `SUPABASE_SERVICE_KEY`: Supabase service role key
+- `CORS_ORIGIN`: Your frontend domain
+
+**Optional variables:**
+- `LOOPS_API_KEY`: For email notifications
+- `API_SECRET_KEY`: For legacy application endpoint
+- `FILE_STORAGE_URL`: For file downloads
 
 ### 3. Set Up Database
 
-Run the SQL schema in your Supabase SQL editor:
+#### Option A: Using Supabase CLI (Recommended)
 
-```sql
--- Copy content from database/schema.sql
+```bash
+# Install Supabase CLI
+npm install -g supabase
+
+# Start local development
+cd supabase
+supabase start
+
+# Apply migrations (includes sample data)
+supabase db reset
+```
+
+#### Option B: Manual Setup
+
+```bash
+# Copy and run the dashboard schema in your Supabase SQL editor
+cat database/dashboard-schema.sql
+
+# Or use the migration file
+cat supabase/migrations/20241127000000_initial_dashboard_schema.sql
 ```
 
 ### 4. Start Development Server
@@ -51,28 +87,20 @@ npm run dev
 
 The API will be available at `http://localhost:3001`
 
-## API Endpoints
+Dashboard endpoints require JWT authentication. Legacy application endpoint uses API key.
 
-### POST /api/applications
+## API Documentation
 
-Submit a new MVP application.
+### Authentication Endpoints
 
-**Headers:**
-```
+#### Login
+```http
+POST /api/auth/login
 Content-Type: application/json
-x-api-key: your-api-key-here
-```
 
-**Request Body:**
-```json
 {
-  "name": "John Doe",
-  "email": "john@example.com", 
-  "company": "Acme Inc",
-  "prd_content": "Comprehensive PRD content (min 500 chars)...",
-  "budget_timeline": "5k_2weeks",
-  "project_readiness": "ready_collaboration",
-  "technical_preferences": "Optional technical requirements"
+  "email": "user@example.com",
+  "password": "password123"
 }
 ```
 
@@ -80,71 +108,327 @@ x-api-key: your-api-key-here
 ```json
 {
   "status": "success",
-  "qualification": "highly_qualified",
-  "message": "Perfect! You're exactly the type of founder we love working with.",
-  "next_action": "calendar_booking",
-  "calendar_url": "https://calendly.com/mymvp/discovery-call"
+  "token": "jwt-token-here",
+  "user": {
+    "id": "uuid",
+    "email": "user@example.com",
+    "name": "John Doe",
+    "role": "customer",
+    "currentOrganizationId": "org-uuid"
+  }
 }
 ```
 
-### GET /health
+#### Register
+```http
+POST /api/auth/register
+Content-Type: application/json
 
-Health check endpoint.
+{
+  "email": "user@example.com",
+  "name": "John Doe",
+  "password": "password123",
+  "role": "customer"
+}
+```
+
+#### Get Profile
+```http
+GET /api/auth/me
+Authorization: Bearer <jwt_token>
+```
+
+### Organization Management
+
+#### Get User's Organizations
+```http
+GET /api/organizations
+Authorization: Bearer <jwt_token>
+```
+
+**Response:**
+```json
+{
+  "status": "success",
+  "organizations": [
+    {
+      "organization_id": "uuid",
+      "organization_name": "TechStartup Inc",
+      "organization_slug": "techstartup-inc",
+      "user_role": "admin",
+      "is_current": true
+    }
+  ]
+}
+```
+
+#### Create Organization
+```http
+POST /api/organizations
+Authorization: Bearer <jwt_token>
+
+{
+  "name": "My Company",
+  "slug": "my-company",
+  "description": "Description of my company",
+  "website_url": "https://mycompany.com"
+}
+```
+
+#### Switch Organization
+```http
+POST /api/organizations/:organizationId/switch
+Authorization: Bearer <jwt_token>
+```
+
+**Response:**
+```json
+{
+  "status": "success",
+  "token": "new-jwt-token-with-org-context",
+  "organization_id": "uuid"
+}
+```
+
+#### Get Organization Members
+```http
+GET /api/organizations/:organizationId/members
+Authorization: Bearer <jwt_token>
+```
+
+#### Add Member to Organization
+```http
+POST /api/organizations/:organizationId/members
+Authorization: Bearer <jwt_token>
+
+{
+  "user_id": "uuid",
+  "role": "developer"
+}
+```
+
+#### Update Member Role
+```http
+PUT /api/organizations/:organizationId/members/:memberId
+Authorization: Bearer <jwt_token>
+
+{
+  "role": "admin"
+}
+```
+
+#### Remove Member
+```http
+DELETE /api/organizations/:organizationId/members/:memberId
+Authorization: Bearer <jwt_token>
+```
+
+### Project Management
+
+#### Get Projects (Role-filtered)
+```http
+GET /api/projects
+Authorization: Bearer <jwt_token>
+```
+
+#### Create Project (Admin Only)
+```http
+POST /api/projects
+Authorization: Bearer <jwt_token>
+
+{
+  "title": "E-commerce Platform",
+  "type": "mvp",
+  "price_cents": 1200000,
+  "customer_id": "uuid-here"
+}
+```
+
+#### Assign Developer (Admin Only)
+```http
+PUT /api/projects/:id/assign
+Authorization: Bearer <jwt_token>
+
+{
+  "developer_id": "uuid-here"
+}
+```
+
+### Task Management
+
+#### Get Project Tasks
+```http
+GET /api/projects/:projectId/tasks
+Authorization: Bearer <jwt_token>
+```
+
+#### Create Task
+```http
+POST /api/projects/:projectId/tasks
+Authorization: Bearer <jwt_token>
+
+{
+  "title": "Set up authentication",
+  "description": "Implement JWT-based auth",
+  "priority": "high",
+  "estimated_hours": 8
+}
+```
+
+#### Update Task Status
+```http
+PUT /api/tasks/:id
+Authorization: Bearer <jwt_token>
+
+{
+  "status": "completed",
+  "actual_hours": 6.5
+}
+```
+
+### Messaging System
+
+#### Get Project Messages
+```http
+GET /api/projects/:projectId/messages
+Authorization: Bearer <jwt_token>
+```
+
+#### Send Message
+```http
+POST /api/projects/:projectId/messages
+Authorization: Bearer <jwt_token>
+
+{
+  "content": "Project looks great! Can we adjust the styling?",
+  "message_type": "feedback"
+}
+```
+
+### File Management
+
+#### Upload Files
+```http
+POST /api/projects/:projectId/files
+Authorization: Bearer <jwt_token>
+Content-Type: multipart/form-data
+
+files: [file1, file2]
+description: "Design mockups"
+category: "asset"
+```
+
+#### Download File
+```http
+GET /api/files/:id/download
+Authorization: Bearer <jwt_token>
+```
+
+### Dashboard Data
+
+#### Get Role-based Dashboard
+```http
+GET /api/dashboard
+Authorization: Bearer <jwt_token>
+```
+
+Returns different data based on user role:
+- **Admin**: All projects, developer workload, system stats
+- **Developer**: Assigned projects, upcoming tasks
+- **Customer**: Their projects, progress updates
+
+### Health Check
+```http
+GET /health
+```
 
 **Response:**
 ```json
 {
   "status": "ok",
   "timestamp": "2024-01-15T10:30:00.000Z",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "environment": "development"
 }
 ```
 
-## Qualification Logic
+## Multi-Organization Architecture
 
-Applications are automatically qualified based on:
+### Organization Structure
+- **Users belong to multiple organizations** with different roles in each
+- **Developers can work across organizations** on different projects
+- **Organization switching** allows users to change context seamlessly
+- **Role-based permissions** apply within each organization separately
 
-**Highly Qualified** (Calendar booking):
-- Budget: $5K+ (2 weeks) or $10K+ (flexible)
-- Readiness: Ready for collaboration
-- PRD: Complete (500+ characters)
+### User Roles & Permissions (Per Organization)
 
-**Qualified** (Manual review):
-- Budget: $2-5K (1 month)
-- Readiness: Ready for collaboration
-- PRD: Adequate
+#### Customer Role
+- **View**: Own projects within current organization, assigned developer info, project updates
+- **Create**: Messages to developer/admin, feedback on deliverables
+- **Switch**: Between organizations where they are members
+- **Cannot**: See other customers' projects, internal developer notes, cross-organization data
 
-**Unqualified** (Polite rejection):
-- Budget: Under $2K or exploring
-- Readiness: Hands-off or wants marketing
-- PRD: Incomplete
+#### Developer Role
+- **View**: Assigned projects within current organization, all project details, customer messages
+- **Create**: Task updates, internal notes, progress reports, customer communication
+- **Update**: Task status, logged hours, technical specifications
+- **Switch**: Between organizations where they provide development services
+- **Cannot**: Create/delete projects, see other developers' projects, manage organization members
 
-## Email Templates
+#### Organization Admin Role
+- **Organization Access**: Full access to current organization's projects and data
+- **Member Management**: Add/remove members, change roles within organization
+- **Project Management**: Create projects, assign developers, manage organization workflow
+- **Switch**: Between organizations where they have admin privileges
+- **Cannot**: Access other organizations' data, manage global system settings
 
-Configure these templates in Loops.so:
-
-1. **application_confirmation**: Sent to applicants
-2. **new_application_admin**: Sent to admin
-
-Template variables are passed automatically based on the application data.
+#### Global Admin Role (MyMVP Team)
+- **Full System Access**: All organizations, all users, all data
+- **Organization Management**: Create organizations, manage cross-organization features
+- **Developer Assignment**: Assign developers to projects across organizations
+- **System Management**: Global settings, monitoring, and administration
 
 ## Database Schema
 
-The `applications` table stores:
-- Contact information (name, email, company)
-- PRD content and preferences
-- Qualification level and timestamps
-- Proper indexing and RLS policies
+The API uses a comprehensive PostgreSQL schema with:
+
+### Core Tables
+- **users** - All system users (customers, developers, admins)
+- **projects** - Customer projects with developer assignments and tracking
+- **project_tasks** - Individual tasks within projects for developer workflow
+- **project_updates** - Status updates, milestones, and progress reports
+- **messages** - Multi-party communication between users
+- **files** - File uploads and deliverables with role-based access
+- **developer_availability** - Developer capacity and workload tracking
+
+### Security Features
+- **Row Level Security (RLS)** policies for data isolation
+- **Role-based access** controls at the database level
+- **Audit trails** for all critical operations
+- **Indexes** optimized for dashboard queries
+
+See `database/dashboard-schema.sql` for the complete implementation.
 
 ## Security Features
 
-- **API Key Authentication**: Required for all endpoints
-- **Rate Limiting**: 10 requests per minute per IP
-- **CORS Protection**: Restricted to your domain
-- **Input Validation**: Joi schema validation
-- **Request Size Limits**: 10MB max payload
-- **Security Headers**: Helmet.js protection
+### Authentication & Authorization
+- **JWT Authentication**: Token-based auth with role claims
+- **Password Security**: Bcrypt hashing with 12 salt rounds
+- **Role-based Middleware**: Granular permission controls
+- **Project-level Access**: Users can only access authorized projects
+
+### API Security
+- **Rate Limiting**: 100 requests per 15 minutes per IP
+- **CORS Protection**: Configurable allowed origins
+- **Input Validation**: Comprehensive Joi schema validation
+- **Security Headers**: Helmet.js protection against common attacks
+- **File Upload Restrictions**: Type and size limitations
+
+### Database Security
+- **Row Level Security**: Supabase RLS policies
+- **Service Role Access**: Elevated permissions for API operations
+- **Parameterized Queries**: Protection against SQL injection
+- **Connection Security**: Encrypted connections to database
 
 ## Error Handling
 
