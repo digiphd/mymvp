@@ -6,3 +6,4 @@
 - [] Get signin/ out working
 - [] Integrate frontend with API locally
 - [] Deploy API in Vercel
+
