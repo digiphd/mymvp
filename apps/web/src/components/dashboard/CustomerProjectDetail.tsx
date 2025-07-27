@@ -142,7 +142,7 @@ export default function CustomerProjectDetail({ projectId, onBack }: CustomerPro
 
       {/* Main Content */}
       <main className="container mx-auto px-6 py-8">
-        <Tabs value={activeTab} className="w-full">
+        <Tabs className="w-full">
           <TabsList 
             className="grid w-full grid-cols-5"
             activeIndex={
